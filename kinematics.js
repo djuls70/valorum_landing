@@ -90,13 +90,4 @@ window.AppUI = { version: '1.0.0' };
                 );
                 countObserver.observe(ledger);
             }
-
-            /* 4. Защита якоря кнопки до подстановки боевого URL Telegram-бота */
-            document.querySelectorAll('[data-bot-cta]').forEach((link) => {
-                link.addEventListener('click', (e) => {
-                    if (link.getAttribute('href') === '#telegram-bot') {
-                        e.preventDefault();
-                    }
-                });
-            });
         })();
