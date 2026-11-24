@@ -1,545 +1,407 @@
 /* ==========================================================================
-           ТЕХНОЛОГИЧЕСКИЙ МИНИМАЛИЗМ ВАЛОРУМ (ТИПОГРАФИКА, ПАЛИТРА, ТОЧНАЯ КИНЕТИКА)
-           ========================================================================== */
-        :root {
-            /* Канонические алиасы дизайн-токенов Djuls Design Studio (ARCH-02 × ARCH-01) */
-            --bg-elevated: #F0F7F6;
-            --bg-glass: rgba(255, 255, 255, 0.95);
-            --text-primary: #0A2629;
-            --accent-primary: #29CBB6;
-            --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-            --text-hero: clamp(1.625rem, 3.3vw + 0.85rem, 2.625rem);
-            /* Светлый воздушный холст с сеткой точек + чисто-белые планки шапки и футера */
-            --bg-canvas: #FAFBFB;
-            --bg-surface: #FFFFFF;
-            --bg-subtle: #F0F7F6;
-            --bg-bar-glass: rgba(255, 255, 255, 0.95);
-            --border-hairline: #D8E6E4;
-
-            /* 1. Основная зеленая гамма Скандинавского фьорда */
-            --dark-green-ink: #0A2629;
-            --dark-green: #0D3B3E;
-            --card-border-green: #B5DCD7;
-            --card-top-green: #169385;
-            --text-secondary: #3F585B;
-            --text-muted: #6E8689;
-
-            /* 2. Ярко-зеленый для кнопок, маркера выгоды и плюсовой экономики */
-            --bright-green: #29CBB6;
-            --bright-green-hover: #31D6C0;
-            --bright-green-ink: #062628;
-            --good-text: #0C786D;
-            --good-soft: #EAF8F5;
-
-            /* 3. Рубиново-красный для тонких плашек, точек и минусовых цифр */
-            --crimson: #C9333E;
-            --crimson-text: #B42732;
-            --crimson-soft: #FDF2F3;
-            --crimson-border: rgba(201, 51, 62, 0.34);
-
-            /* Современная инженерная шрифтовая пара: Manrope + IBM Plex Mono */
-            --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-
-            /* Механические кривые без маркетинговой «резины» */
-            --ease-mech: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-crisp: cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        body {
-            font-family: var(--font-sans);
-            font-weight: 450;
-            background-color: var(--bg-canvas);
-            background-image: radial-gradient(rgba(13, 59, 62, 0.075) 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: var(--dark-green-ink);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-
-        /* Единый стандарт типографики и межстрочных расстояний по всей странице */
-        .hero-h1 {
-            font-size: clamp(1.625rem, 3.3vw + 0.85rem, 2.625rem);
-            line-height: 1.16;
-            letter-spacing: -0.032em;
-            font-weight: 700;
-        }
-
-        .section-h2 {
-            font-size: clamp(1.4rem, 2.1vw + 0.82rem, 2rem);
-            line-height: 1.18;
-            letter-spacing: -0.027em;
-            font-weight: 700;
-        }
-
-        .section-lead {
-            font-size: clamp(0.9375rem, 0.35vw + 0.86rem, 1.0625rem);
-            line-height: 1.62;
-            color: var(--text-secondary);
-        }
-
-        .card-h3 {
-            font-size: 1.0625rem;
-            line-height: 1.35;
-            letter-spacing: -0.017em;
-            font-weight: 600;
-            color: var(--dark-green-ink);
-        }
-
-        .card-body {
-            font-size: 0.875rem;
-            line-height: 1.62;
-            color: var(--text-secondary);
-        }
-
-        .ledger-num {
-            font-family: var(--font-mono);
-            font-size: 0.84375rem;
-            line-height: 1.35;
-            letter-spacing: -0.015em;
-        }
-
-        .font-mono-tech {
-            font-family: var(--font-mono);
-            letter-spacing: -0.01em;
-        }
-
-        .tabular-nums {
-            font-variant-numeric: tabular-nums;
-            font-feature-settings: "tnum" 1, "zero" 1;
-        }
-
-        /* Телеметрическая линия чтения 1.5px в нижней грани шапки */
-        #scroll-telemetry {
-            position: absolute;
-            left: 0;
-            bottom: -1px;
-            height: 1.5px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--card-top-green) 0%, var(--bright-green) 75%, var(--crimson) 100%);
-            transform-origin: 0 50%;
-            transform: scaleX(0);
-            will-change: transform;
-            pointer-events: none;
-        }
-
-        /* Единый монолитный логотип ВАЛОРУМ (иконка и слово статичны как единое целое) */
-        .brand-lockup {
-            display: flex;
-            align-items: center;
-            width: fit-content;
-            gap: 0.55rem;
-            text-decoration: none;
-        }
-
-        .brand-logo-box {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            flex-shrink: 0;
-            box-shadow:
-                0 1px 2px rgba(10, 38, 41, 0.12),
-                0 0 0 2px var(--good-soft);
-        }
-
-        @media (min-width: 640px) {
-            .brand-logo-box {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        .brand-wordmark {
-            font-family: var(--font-sans);
-            font-size: 15px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.065em;
-            color: var(--dark-green-ink);
-            line-height: 1;
-        }
-
-        @media (min-width: 640px) {
-            .brand-wordmark {
-                font-size: 16px;
-            }
-        }
-
-        /* Маркер 10–25% с калибровочной отрисовкой слева направо (текст полностью неподвижен) */
-        .hero-highlight {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1px;
-            z-index: 1;
-        }
-
-        .hero-highlight::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0.04em;
-            height: 0.30em;
-            background-color: rgba(41, 203, 182, 0.40);
-            border-bottom: 2px solid var(--bright-green);
-            z-index: -1;
-            transform-origin: left center;
-            transform: scaleX(0);
-            transition: transform 0.6s var(--ease-mech) 0.18s;
-        }
-
-        .reveal-item.is-visible .hero-highlight::after {
-            transform: scaleX(1);
-        }
-
-        /* Поочередная прорисовка векторных галочек на 1-м экране */
-        .check-stroke {
-            stroke-dasharray: 14;
-            stroke-dashoffset: 14;
-            transition: stroke-dashoffset 0.4s var(--ease-mech) var(--check-delay, 0.2s);
-        }
-
-        .reveal-item.is-visible .check-stroke {
-            stroke-dashoffset: 0;
-        }
-
-        /* Карточки: 0px сдвига текста (идеальная резкость шрифта), работает только оптика контура и реперов */
-        .valorum-card {
-            position: relative;
-            overflow: hidden;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--card-border-green);
-            border-top: 2px solid var(--card-top-green);
-            border-radius: 1rem;
-            box-shadow:
-                0 1px 2px rgba(10, 38, 41, 0.03),
-                0 8px 22px -10px rgba(10, 38, 41, 0.055);
-            transition:
-                box-shadow 0.22s var(--ease-crisp),
-                border-color 0.22s var(--ease-crisp);
-        }
-
-        /* Верхний калибровочный луч */
-        .valorum-card::before {
-            content: "";
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--bright-green);
-            transform-origin: left center;
-            transform: scaleX(0);
-            transition: transform 0.26s var(--ease-mech);
-            z-index: 20;
-        }
-
-        /* Чертежный крестик-репер: выровнен точно по оптической оси плашек и полям p-5 / sm:p-7 */
-        .valorum-card::after {
-            content: "+";
-            pointer-events: none;
-            position: absolute;
-            top: 26px;
-            right: 20px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            line-height: 1;
-            color: var(--card-border-green);
-            transition: color 0.2s ease, transform 0.24s var(--ease-mech);
-        }
-
-        @media (min-width: 640px) {
-            .valorum-card::after {
-                top: 34px;
-                right: 28px;
-            }
-        }
-
-        @media (hover: hover) {
-            .valorum-card:hover {
-                border-color: #72C2B9;
-                box-shadow:
-                    0 3px 10px rgba(10, 38, 41, 0.045),
-                    0 16px 32px -12px rgba(13, 92, 86, 0.11);
-            }
-
-            .valorum-card:hover::before {
-                transform: scaleX(1);
-            }
-
-            .valorum-card:hover::after {
-                color: var(--card-top-green);
-                transform: rotate(90deg);
-            }
-
-            .valorum-card:hover .badge-outline-red {
-                border-color: rgba(201, 51, 62, 0.68);
-                background-color: var(--crimson-soft);
-            }
-
-            .valorum-card:hover .badge-outline-red::before {
-                opacity: 1;
-            }
-        }
-
-        /* Прозрачная верхняя плашка карточек с тонким красным бордюром */
-        .badge-outline-red {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.42rem;
-            max-width: calc(100% - 24px);
-            padding: 0.3rem 0.65rem;
-            border-radius: 0.4rem;
-            background-color: rgba(253, 242, 243, 0.28);
-            border: 1px solid var(--crimson-border);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            line-height: 1.25;
-            font-weight: 500;
-            letter-spacing: -0.005em;
-            color: var(--crimson-text);
-            transition: border-color 0.2s ease, background-color 0.2s ease;
-        }
-
-        @media (min-width: 380px) {
-            .badge-outline-red {
-                white-space: nowrap;
-            }
-        }
-
-        .badge-outline-red::before {
-            content: "";
-            width: 4px;
-            height: 4px;
-            flex-shrink: 0;
-            border-radius: 9999px;
-            background-color: var(--crimson);
-            opacity: 0.55;
-            transition: opacity 0.2s ease;
-        }
-
-        /* Темно-изумрудный монолит (Карточка 05 на 2-м экране и Баннер на 5-м экране) */
-        .dark-green-banner {
-            position: relative;
-            overflow: hidden;
-            background-color: var(--dark-green);
-            background-image: radial-gradient(rgba(41, 203, 182, 0.15) 1px, transparent 1px);
-            background-size: 20px 20px;
-            border: 1px solid #16565A;
-            box-shadow:
-                0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
-                0 18px 40px -18px rgba(10, 38, 41, 0.34);
-            transition: border-color 0.24s var(--ease-crisp), box-shadow 0.24s var(--ease-crisp);
-        }
-
-        @media (hover: hover) {
-            .dark-green-banner:hover {
-                border-color: #21797E;
-            }
-
-            .dark-green-banner:hover .corner-tick {
-                border-color: rgba(41, 203, 182, 0.75);
-            }
-
-            .dark-green-banner:hover .badge-outline-red-dark {
-                border-color: rgba(255, 145, 154, 0.78);
-                background-color: rgba(201, 51, 62, 0.24);
-            }
-        }
-
-        /* Угловые чертежные скобки на темно-изумрудных блоках */
-        .corner-tick {
-            pointer-events: none;
-            position: absolute;
-            width: 9px;
-            height: 9px;
-            border-color: rgba(41, 203, 182, 0.35);
-            transition: border-color 0.24s ease;
-        }
-
-        /* Адаптация красной контурной плашки специально под темно-изумрудный фон Карточки 05 */
-        .badge-outline-red-dark {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.42rem;
-            padding: 0.3rem 0.65rem;
-            border-radius: 0.4rem;
-            background-color: rgba(201, 51, 62, 0.16);
-            border: 1px solid rgba(255, 122, 133, 0.46);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            line-height: 1.25;
-            font-weight: 500;
-            letter-spacing: -0.005em;
-            color: #FF9EA6;
-            white-space: nowrap;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
-        }
-
-        .badge-outline-red-dark::before {
-            content: "";
-            width: 4px;
-            height: 4px;
-            flex-shrink: 0;
-            border-radius: 9999px;
-            background-color: #FF7D88;
-        }
-
-        /* Финансовая таблица с точным строчным маркером */
-        .valorum-table-wrap {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--card-border-green);
-            border-radius: 1rem;
-            box-shadow:
-                0 1px 2px rgba(10, 38, 41, 0.03),
-                0 8px 22px -10px rgba(10, 38, 41, 0.055);
-        }
-
-        .ledger-row-bad {
-            box-shadow: inset 3px 0 0 transparent;
-            transition: background-color 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        @media (hover: hover) {
-            .ledger-row-bad:hover {
-                background-color: rgba(253, 242, 243, 0.45);
-                box-shadow: inset 3px 0 0 var(--crimson);
-            }
-        }
-
-        .ledger-row-good {
-            box-shadow: inset 3px 0 0 transparent;
-            transition: background-color 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        @media (hover: hover) {
-            .ledger-row-good:hover {
-                background-color: rgba(234, 248, 245, 0.55);
-                box-shadow: inset 3px 0 0 var(--card-top-green);
-            }
-        }
-
-        /* Кнопка в шапке: 0px трансформации текста (никакого размытия в sticky-шапке с backdrop-blur) */
-        .btn-header-outline {
-            background-color: var(--bg-surface);
-            color: var(--dark-green-ink);
-            border: 1px solid var(--card-border-green);
-            box-shadow: 0 1px 2px rgba(10, 38, 41, 0.03);
-            transition:
-                background-color 0.18s var(--ease-crisp),
-                border-color 0.18s var(--ease-crisp),
-                box-shadow 0.18s var(--ease-crisp);
-        }
-
-        @media (hover: hover) {
-            .btn-header-outline:hover {
-                background-color: #F2F9F8;
-                border-color: #72C2B9;
-                box-shadow:
-                    0 2px 6px rgba(10, 38, 41, 0.05),
-                    0 6px 14px -6px rgba(13, 92, 86, 0.12);
-            }
-        }
-
-        .btn-header-outline:active {
-            background-color: #E9F4F2;
-            box-shadow: 0 1px 2px rgba(10, 38, 41, 0.06) inset;
-        }
-
-        /* Залитые основные кнопки CTA: неподвижный четкий текст + точный сдвиг только векторной стрелки */
-        .btn-valorum {
-            position: relative;
-            background-color: var(--bright-green);
-            background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
-            color: var(--bright-green-ink);
-            border: 1px solid rgba(10, 38, 41, 0.14);
-            box-shadow:
-                0 1px 0 0 rgba(255, 255, 255, 0.45) inset,
-                0 8px 20px -6px rgba(13, 138, 124, 0.28);
-            transition:
-                background-color 0.18s var(--ease-crisp),
-                box-shadow 0.18s var(--ease-crisp);
-        }
-
-        @media (hover: hover) {
-            .btn-valorum:hover {
-                background-color: var(--bright-green-hover);
-                box-shadow:
-                    0 1px 0 0 rgba(255, 255, 255, 0.52) inset,
-                    0 12px 24px -6px rgba(13, 138, 124, 0.36);
-            }
-
-            .btn-valorum:hover svg {
-                transform: translateX(3px);
-            }
-        }
-
-        .btn-valorum:active {
-            background-color: #22BA9F;
-            box-shadow: 0 1px 3px rgba(6, 38, 40, 0.14) inset;
-        }
-
-        .btn-valorum svg {
-            transition: transform 0.2s var(--ease-mech);
-        }
-
-        /* Точный импульс индикатора 24 часов (только тень, 0px изменения размера) */
-        @keyframes pulseDot {
-            0%, 100% { box-shadow: 0 0 0 2px rgba(201, 51, 62, 0.14); }
-            50% { box-shadow: 0 0 0 5px rgba(201, 51, 62, 0.24); }
-        }
-
-        @keyframes pulseDotDark {
-            0%, 100% { box-shadow: 0 0 0 2px rgba(255, 118, 130, 0.18); }
-            50% { box-shadow: 0 0 0 5px rgba(255, 118, 130, 0.32); }
-        }
-
-        .live-red-dot {
-            animation: pulseDot 2.8s ease-in-out infinite;
-        }
-
-        .live-red-dot-dark {
-            animation: pulseDotDark 2.8s ease-in-out infinite;
-        }
-
-        /* Инженерное проявление блоков: без filter:blur, целые пиксели, сброс слоя после входа */
-        .reveal-item {
-            opacity: 0;
-            transform: translateY(10px);
-            transition:
-                opacity 0.38s var(--ease-mech),
-                transform 0.38s var(--ease-mech);
-            transition-delay: var(--delay, 0ms);
-        }
-
-        .reveal-item.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-item.is-settled {
-            transform: none;
-            transition: none;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .reveal-item {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
-            .hero-highlight::after {
-                transform: scaleX(1);
-                transition: none;
-            }
-            .check-stroke {
-                stroke-dashoffset: 0;
-                transition: none;
-            }
-            .live-red-dot,
-            .live-red-dot-dark {
-                animation: none;
-            }
-        }
+   ТЕХНОЛОГИЧЕСКИЙ МИНИМАЛИЗМ ВАЛОРУМ (ШРИФТЫ, PREFLIGHT, ТОКЕНЫ, БАЗА)
+   ========================================================================== */
+@layer base, components, utilities;
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('./manrope-latin-cyrillic-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./ibm-plex-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./ibm-plex-mono-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./ibm-plex-mono-600.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    /* Канонические алиасы дизайн-токенов Djuls Design Studio (ARCH-02 × ARCH-01) */
+    --bg-elevated: #F0F7F6;
+    --bg-glass: rgba(255, 255, 255, 0.95);
+    --text-primary: #0A2629;
+    --accent-primary: #29CBB6;
+    --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --text-hero: clamp(1.625rem, 3.3vw + 0.85rem, 2.625rem);
+    --bg-canvas: #FAFBFB;
+    --bg-surface: #FFFFFF;
+    --bg-subtle: #F0F7F6;
+    --bg-bar-glass: rgba(255, 255, 255, 0.95);
+    --border-hairline: #D8E6E4;
+
+    /* 1. Основная зеленая гамма Скандинавского фьорда */
+    --dark-green-ink: #0A2629;
+    --dark-green: #0D3B3E;
+    --card-border-green: #B5DCD7;
+    --card-top-green: #169385;
+    --text-secondary: #3F585B;
+    --text-muted: #6E8689;
+
+    /* 2. Ярко-зеленый для кнопок, маркера выгоды и плюсовой экономики */
+    --bright-green: #29CBB6;
+    --bright-green-hover: #31D6C0;
+    --bright-green-ink: #062628;
+    --good-text: #0C786D;
+    --good-soft: #EAF8F5;
+
+    /* 3. Рубиново-красный для тонких плашек, точек и минусовых цифр */
+    --crimson: #C9333E;
+    --crimson-text: #B42732;
+    --crimson-soft: #FDF2F3;
+    --crimson-border: rgba(201, 51, 62, 0.34);
+
+    /* Инженерная шрифтовая пара и механические кривые */
+    --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --ease-mech: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-crisp: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Tailwind Preflight */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+  }
+
+  ::before,
+  ::after {
+    --tw-content: '';
+  }
+
+  html,
+  :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-family: var(--font-sans);
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    line-height: inherit;
+    font-family: var(--font-sans);
+    font-weight: 450;
+    background-color: var(--bg-canvas);
+    background-image: radial-gradient(rgba(13, 59, 62, 0.075) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--dark-green-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    font-size: 1em;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+  }
+
+  :-moz-focusring {
+    outline: auto;
+  }
+
+  blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+    margin: 0;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  ol, ul, menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Секции и типографика */
+  .valorum-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .valorum-section--hero { padding-top: 2.25rem; }
+  .valorum-section--last { border-bottom: 0; }
+
+  .hero-h1 {
+    font-size: clamp(1.625rem, 3.3vw + 0.85rem, 2.625rem);
+    line-height: 1.16;
+    letter-spacing: -0.032em;
+    font-weight: 700;
+    color: var(--dark-green-ink);
+  }
+  .section-h2 {
+    font-size: clamp(1.4rem, 2.1vw + 0.82rem, 2rem);
+    line-height: 1.18;
+    letter-spacing: -0.027em;
+    font-weight: 700;
+    color: var(--dark-green-ink);
+    max-width: 48rem;
+    margin-bottom: 0.875rem;
+  }
+  .section-lead {
+    font-size: clamp(0.9375rem, 0.35vw + 0.86rem, 1.0625rem);
+    line-height: 1.62;
+    color: var(--text-secondary);
+    max-width: 48rem;
+    margin-bottom: 1.75rem;
+  }
+  .card-h3 {
+    font-size: 1.0625rem;
+    line-height: 1.35;
+    letter-spacing: -0.017em;
+    font-weight: 600;
+    color: var(--dark-green-ink);
+    margin-bottom: 0.5rem;
+  }
+  .card-body {
+    font-size: 0.875rem;
+    line-height: 1.62;
+    color: var(--text-secondary);
+  }
+  .card-summary {
+    margin-top: 1rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--border-hairline);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dark-green-ink);
+    line-height: 1.45;
+  }
+  .ledger-num {
+    font-family: var(--font-mono);
+    font-size: 0.84375rem;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+  .font-mono-tech {
+    font-family: var(--font-mono);
+    letter-spacing: -0.01em;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+
+  @media (min-width: 640px) {
+    .valorum-section { padding: 5rem 0; }
+    .section-h2 { margin-bottom: 1rem; }
+    .section-lead { margin-bottom: 2.5rem; }
+    .card-h3 { margin-bottom: 0.625rem; }
+    .card-summary { margin-top: 1.5rem; padding-top: 1rem; }
+  }
+  @media (min-width: 768px) {
+    .card-h3--3row { min-height: 4.35rem; }
+  }
+
+  /* Телеметрическая линия чтения 1.5px и единый логотип */
+  #scroll-telemetry {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1.5px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--card-top-green) 0%, var(--bright-green) 75%, var(--crimson) 100%);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.55rem;
+    text-decoration: none;
+  }
+  .brand-logo-box {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(10, 38, 41, 0.12), 0 0 0 2px var(--good-soft);
+  }
+  .brand-wordmark {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.065em;
+    color: var(--dark-green-ink);
+    line-height: 1;
+  }
+  @media (min-width: 640px) {
+    .brand-logo-box { width: 24px; height: 24px; }
+    .brand-wordmark { font-size: 16px; }
+  }
+
+  /* Буллиты и маркер 10–25% первого экрана */
+  .hero-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .hero-bullet strong { font-weight: 600; color: var(--dark-green-ink); }
+  .hero-check-box {
+    margin-top: 3px;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid color-mix(in srgb, var(--card-top-green) 55%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--crimson);
+    box-shadow: 0 1px 2px rgba(10, 38, 41, 0.04);
+  }
+  .hero-check-box svg { width: 0.75rem; height: 0.75rem; }
+  @media (min-width: 640px) {
+    .hero-bullet { gap: 0.875rem; }
+  }
+
+  .hero-highlight {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1px;
+    z-index: 1;
+  }
+  .hero-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.04em;
+    height: 0.30em;
+    background-color: rgba(41, 203, 182, 0.40);
+    border-bottom: 2px solid var(--bright-green);
+    z-index: -1;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.6s var(--ease-mech) 0.18s;
+  }
+  .reveal-item.is-visible .hero-highlight::after { transform: scaleX(1); }
+
+  .check-stroke {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    transition: stroke-dashoffset 0.4s var(--ease-mech) var(--check-delay, 0.2s);
+  }
+  .reveal-item.is-visible .check-stroke { stroke-dashoffset: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-highlight::after { transform: scaleX(1); transition: none; }
+    .check-stroke { stroke-dashoffset: 0; transition: none; }
+  }
+}

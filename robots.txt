@@ -1,8 +1,4 @@
-User-agent: TelegramBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://valorum.ru/sitemap.xml

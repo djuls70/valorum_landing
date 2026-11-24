@@ -1,622 +1,482 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Валорум — Повышение эффективности закупок и снабжения</title>
-  <meta name="description" content="Валорум (Valorum): повышаем эффективность ваших закупок и снабжения. Снижаем затраты на сырье, материалы и расходники на 10–25% с учетом вычета НДС 22%, доставки и отсрочки платежа. Бесплатный результат за 24 часа.">
-  <meta name="author" content="Сергей Музыкин (@SerjMuzikin)">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#FFFFFF">
-  <!-- Favicons & Web App Manifest (Встроенный векторный знак Валорум) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D3B3E'/%3E%3Crect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%231C686D' stroke-width='1'/%3E%3Cpath d='M8.5 10L16 23.5L23.5 10' fill='none' stroke='%2329CBB6' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='14.1' y='7.2' width='3.8' height='3.8' rx='0.9' fill='%23E04854'/%3E%3C/svg%3E">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="canonical" href="https://valorum.ru/">
-  <!-- Open Graph (Telegram, WhatsApp, VK, LinkedIn) -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:site_name" content="Валорум">
-  <meta property="og:url" content="https://valorum.ru/">
-  <meta property="og:title" content="Валорум — Снижаем затраты на закупки и снабжение на 10–25%">
-  <meta property="og:description" content="Находим сотни производителей и крупных оптовиков по стране, считаем реальную экономику (НДС 22%, доставка, отсрочка) и выторговываем лучшие условия. Бесплатный расчет за 24 часа.">
-  <meta property="og:image" content="https://valorum.ru/og-cover.svg">
-  <!-- Twitter / Telegram Large Summary Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Валорум — Снижаем затраты на закупки и снабжение на 10–25%">
-  <meta name="twitter:description" content="Охватываем сотни поставщиков, считаем честную экономику с НДС и отсрочкой и договариваемся на лучшие условия. Результат за 24 часа.">
-  <meta name="twitter:image" content="https://valorum.ru/og-cover.svg">
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Валорум",
-    "alternateName": "Valorum",
-    "url": "https://valorum.ru",
-    "description": "Повышение эффективности корпоративных закупок и снабжения. Снижение затрат на сырье, материалы и расходники на 10–25%.",
-    "founder": {
-      "@type": "Person",
-      "name": "Сергей Музыкин",
-      "url": "https://t.me/SerjMuzikin"
-    }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Валорум — Повышение эффективности закупок и снабжения</title>
+ <meta name="description" content="Валорум (Valorum): повышаем эффективность ваших закупок и снабжения. Снижаем затраты на сырье, материалы и расходники на 10–25% с учетом вычета НДС 22%, доставки и отсрочки платежа. Бесплатный результат за 24 часа.">
+ <meta name="author" content="Сергей Музыкин (@SerjMuzikin)">
+ <meta name="robots" content="index, follow">
+ <meta name="theme-color" content="#FFFFFF">
+ <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+ <link rel="manifest" href="site.webmanifest">
+ <link rel="canonical" href="https://valorum.ru/">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="ru_RU">
+ <meta property="og:site_name" content="Валорум">
+ <meta property="og:url" content="https://valorum.ru/">
+ <meta property="og:title" content="Валорум — Снижаем затраты на закупки и снабжение на 10–25%">
+ <meta property="og:description" content="Находим сотни производителей и крупных оптовиков по стране, считаем реальную экономику (НДС 22%, доставка, отсрочка) и выторговываем лучшие условия. Бесплатный расчет за 24 часа.">
+ <meta property="og:image" content="https://valorum.ru/og-cover.svg">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Валорум — Снижаем затраты на закупки и снабжение на 10–25%">
+ <meta name="twitter:description" content="Охватываем сотни поставщиков, считаем честную экономику с НДС и отсрочкой и договариваемся на лучшие условия. Результат за 24 часа.">
+ <meta name="twitter:image" content="https://valorum.ru/og-cover.svg">
+ <script type="application/ld+json">
+ {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Валорум",
+  "alternateName": "Valorum",
+  "url": "https://valorum.ru",
+  "description": "Повышение эффективности корпоративных закупок и снабжения. Снижение затрат на сырье, материалы и расходники на 10–25%.",
+  "founder": {
+   "@type": "Person",
+   "name": "Сергей Музыкин",
+   "url": "https://t.me/SerjMuzikin"
   }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+ }
+ </script>
+ <link rel="preload" href="./manrope-latin-cyrillic-var.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="./components.css">
+ <link rel="stylesheet" href="./utilities.css">
+ <noscript><style>.reveal-item{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="antialiased selection:bg-[#0D3B3E] selection:text-white">
-  <!-- ЕДИНЫЙ СТАНДАРТ ШАПКИ -->
-  <header class="sticky top-0 z-50 bg-[var(--bg-bar-glass)] backdrop-blur-md border-b border-[var(--border-hairline)]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-[60px] sm:h-[68px] flex items-center justify-between gap-3 sm:gap-4">
-      <div class="flex items-center gap-3.5 min-w-0">
-        <a href="#screen-1" class="brand-lockup shrink-0" aria-label="Валорум — наверх страницы">
-          <svg class="brand-logo-box" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="7.5" fill="#0D3B3E"/>
-            <rect x="1" y="1" width="30" height="30" rx="6.5" stroke="#1C686D" stroke-width="1"/>
-            <path d="M8.5 10L16 23.5L23.5 10" stroke="#29CBB6" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="13.9" y="7" width="4.2" height="4.2" rx="1" fill="#E04854"/>
-          </svg>
-          <span class="brand-wordmark">ВАЛОРУМ</span>
-        </a>
-        <span class="hidden md:block h-[18px] w-px bg-[var(--border-hairline)] shrink-0" aria-hidden="true"></span>
-        <span class="hidden md:block text-[12.5px] font-medium text-[var(--text-secondary)] leading-none truncate">
-          Повышение эффективности закупок и снабжения
-        </span>
-      </div>
-      <a href="#screen-5" class="btn-header-outline inline-flex justify-center items-center h-[36px] sm:h-[40px] px-3.5 sm:px-[18px] rounded-[10px] sm:rounded-[11px] text-[12.5px] sm:text-[13px] font-semibold tracking-[-0.01em] shrink-0">
-        Обсудить задачу
-      </a>
+ <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="valorum-mark" viewBox="0 0 32 32">
+   <rect width="32" height="32" rx="7.5" fill="#0D3B3E"/>
+   <rect x="1" y="1" width="30" height="30" rx="6.5" fill="none" stroke="#1C686D" stroke-width="1"/>
+   <path d="M8.5 10L16 23.5L23.5 10" fill="none" stroke="#29CBB6" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+   <rect x="13.9" y="7" width="4.2" height="4.2" rx="1" fill="#E04854"/>
+  </symbol>
+ </svg>
+ <header class="sticky top-0 z-50 bg-[var(--bg-bar-glass)] backdrop-blur-md border-b border-[var(--border-hairline)]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 h-[60px] sm:h-[68px] flex items-center justify-between gap-3 sm:gap-4">
+   <div class="flex items-center gap-3.5 min-w-0">
+    <a href="#screen-1" class="brand-lockup shrink-0" aria-label="Валорум — наверх страницы">
+     <svg class="brand-logo-box" aria-hidden="true"><use href="#valorum-mark"/></svg>
+     <span class="brand-wordmark">ВАЛОРУМ</span>
+    </a>
+    <span class="hidden md:block h-[18px] w-px bg-[var(--border-hairline)] shrink-0" aria-hidden="true"></span>
+    <span class="hidden md:block text-[12.5px] font-medium text-[var(--text-secondary)] leading-none truncate">Повышение эффективности закупок и снабжения</span>
+   </div>
+   <a href="#screen-5" class="btn-header-outline inline-flex justify-center items-center h-[36px] sm:h-[40px] px-3.5 sm:px-[18px] rounded-[10px] sm:rounded-[11px] text-[12.5px] sm:text-[13px] font-semibold tracking-[-0.01em] shrink-0">Обсудить задачу</a>
+  </div>
+  <div id="scroll-telemetry" aria-hidden="true"></div>
+ </header>
+ <main class="max-w-5xl mx-auto px-4 sm:px-6">
+  <section id="screen-1" class="valorum-section valorum-section--hero">
+   <h1 class="hero-h1 reveal-item mb-5 sm:mb-8 max-w-4xl">
+    Повышаем эффективность ваших закупок и снабжения. Снижаем затраты на сырье, материалы и расходники <span class="hero-highlight tabular-nums whitespace-nowrap">на 10–25%</span>
+   </h1>
+   <div class="section-lead reveal-item space-y-3.5 sm:space-y-4" style="--delay: 60ms;">
+    <div class="hero-bullet">
+     <span class="hero-check-box">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+       <path class="check-stroke" style="--check-delay: 0.2s;" d="M2.5 6.5L5 9L9.5 3.5"/>
+      </svg>
+     </span>
+     <span class="tabular-nums"><strong>Находим больше поставщиков:</strong> выходим напрямую на сотни производителей и крупных оптовиков по всей стране вместо 2–3 привычных фирм.</span>
     </div>
-    <div id="scroll-telemetry" aria-hidden="true"></div>
-  </header>
-  <main class="max-w-5xl mx-auto px-4 sm:px-6">
-        <section id="screen-1" class="pt-9 pb-12 sm:py-20 border-b border-[var(--border-hairline)]">
-      <h1 class="hero-h1 reveal-item text-[var(--dark-green-ink)] mb-5 sm:mb-8 max-w-4xl">
-        Повышаем эффективность ваших закупок и снабжения. Снижаем затраты на сырье, материалы и расходники <span class="hero-highlight tabular-nums whitespace-nowrap">на 10–25%</span>
-      </h1>
-      <div class="section-lead reveal-item space-y-3.5 sm:space-y-4 max-w-3xl mb-7 sm:mb-10" style="--delay: 60ms;">
-        <div class="flex items-start gap-3 sm:gap-3.5">
-          <span class="mt-[3px] w-5 h-5 rounded-md bg-white/95 border border-[var(--card-top-green)]/55 flex items-center justify-center shrink-0 text-[var(--crimson)] shadow-[0_1px_2px_rgba(10,38,41,0.04)]">
-            <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-              <path class="check-stroke" style="--check-delay: 0.2s;" d="M2.5 6.5L5 9L9.5 3.5"/>
-            </svg>
-          </span>
-          <span class="tabular-nums"><strong class="font-semibold text-[var(--dark-green-ink)]">Находим больше поставщиков:</strong> выходим напрямую на сотни производителей и крупных оптовиков по всей стране вместо 2–3 привычных фирм.</span>
-        </div>
-        <div class="flex items-start gap-3 sm:gap-3.5">
-          <span class="mt-[3px] w-5 h-5 rounded-md bg-white/95 border border-[var(--card-top-green)]/55 flex items-center justify-center shrink-0 text-[var(--crimson)] shadow-[0_1px_2px_rgba(10,38,41,0.04)]">
-            <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-              <path class="check-stroke" style="--check-delay: 0.32s;" d="M2.5 6.5L5 9L9.5 3.5"/>
-            </svg>
-          </span>
-          <span><strong class="font-semibold text-[var(--dark-green-ink)]">Правильно считаем экономику:</strong> оцениваем реальную стоимость закупки с учетом вашего НДС, доставки и отсрочки платежа.</span>
-        </div>
-        <div class="flex items-start gap-3 sm:gap-3.5">
-          <span class="mt-[3px] w-5 h-5 rounded-md bg-white/95 border border-[var(--card-top-green)]/55 flex items-center justify-center shrink-0 text-[var(--crimson)] shadow-[0_1px_2px_rgba(10,38,41,0.04)]">
-            <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-              <path class="check-stroke" style="--check-delay: 0.44s;" d="M2.5 6.5L5 9L9.5 3.5"/>
-            </svg>
-          </span>
-          <span><strong class="font-semibold text-[var(--dark-green-ink)]">Договариваемся на лучшие условия:</strong> опираемся на конкурирующие предложения и выторговываем максимальные скидки под ваш объем.</span>
-        </div>
-      </div>
-      <div class="reveal-item flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5" style="--delay: 120ms;">
-        <a href="#screen-5" class="btn-valorum inline-flex w-full sm:w-auto justify-center items-center gap-2 sm:gap-2.5 min-h-[50px] px-4 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-[13px] sm:text-[15px] leading-[1.3] text-center shrink-0">
-          <span>Повысить эффективность закупок и снабжения</span>
-          <svg class="w-4 h-4 text-[var(--dark-green)] shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"/>
-          </svg>
-        </a>
-        <div class="inline-flex items-center justify-center sm:justify-start gap-2.5 text-xs sm:text-[13px] leading-[1.4] text-[var(--text-secondary)] tabular-nums">
-          <span class="live-red-dot w-2 h-2 rounded-full bg-[var(--crimson)] shrink-0"></span>
-          <span>Получите результат за 24 часа. <strong class="font-semibold text-[var(--dark-green-ink)]">Бесплатно.</strong></span>
-        </div>
-      </div>
-    </section>
-        <section id="screen-2" class="py-12 sm:py-20 border-b border-[var(--border-hairline)]">
-      <div class="reveal-item">
-        <h2 class="section-h2 text-[var(--dark-green-ink)] mb-3.5 sm:mb-4 max-w-3xl">
-          Почему даже со штатным отделом снабжения вы переплачиваете
-        </h2>
-        <p class="section-lead max-w-3xl mb-7 sm:mb-10">
-          Пока бизнес небольшой и ключевых поставщиков пара десятков, собственник сам помнит цены и сразу видит переплату. Но с ростом компании счет идет на сотни контрагентов и тысячи позиций — проверить каждую строчку лично уже невозможно, и приходится полностью полагаться на штатных снабженцев. Внешне отдел загружен, счета согласованы и материалы приезжают вовремя, но внутри этого привычного процесса вы незаметно теряете маржу по четырем причинам.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-        <!-- Карточка 1 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7 flex flex-col justify-between" style="--delay: 0ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              01. Нехватка времени
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              У снабженцев физически нет времени глубоко прорабатывать рынок
-            </h3>
-            <p class="card-body">
-              Рабочий день уходит на текучку: срочные заявки с мест, согласование доставок, сверку накладных, закрывающие документы и 1С. Прозвонить десятки компаний, собрать прайсы и вручную свести сотни строк из разных счетов человеку некогда — на поиск нет ни сил, ни внимания.
-            </p>
-          </div>
-          <div class="relative z-10 mt-4 pt-3.5 sm:mt-6 sm:pt-4 border-t border-[var(--border-hairline)] text-sm font-semibold text-[var(--dark-green-ink)] leading-[1.45]">
-            Итог: снабженец покупает не там, где выгоднее, а там, где меньше заморочек.
-          </div>
-        </div>
-        <!-- Карточка 2 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7 flex flex-col justify-between" style="--delay: 50ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              02. Покупка у посредников
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Заказы достаются тем, кто всегда на виду и активнее продает
-            </h3>
-            <p class="card-body">
-              Покупают либо там, где брали всегда, либо у тех, кто сам активно мелькает перед глазами. Главная задача посредников — продвигать себя в рекламе, каталогах и звонках, тогда как реальные производители заняты выпуском продукции и часто вообще отсутствуют в инфополе.
-            </p>
-          </div>
-          <div class="relative z-10 mt-4 pt-3.5 sm:mt-6 sm:pt-4 border-t border-[var(--border-hairline)] text-sm font-semibold text-[var(--dark-green-ink)] leading-[1.45]">
-            Итог: вы из своей чистой прибыли оплачиваете чужую посредническую наценку.
-          </div>
-        </div>
-        <!-- Карточка 3 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7 flex flex-col justify-between" style="--delay: 100ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              03. Обычная лень
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Приносят «три счета для галочки» и не заморачиваются с условиями
-            </h3>
-            <p class="card-body">
-              Оклад закупщика обычно не привязан к экономии, поэтому он не заинтересован глубоко считать варианты и вести предметный торг. Правило «собрать несколько КП» закрывают формально — прикладывают пару счетов подороже, лишь бы отстали финансисты, бухгалтерия или СБ.
-            </p>
-          </div>
-          <div class="relative z-10 mt-4 pt-3.5 sm:mt-6 sm:pt-4 border-t border-[var(--border-hairline)] text-sm font-semibold text-[var(--dark-green-ink)] leading-[1.45]">
-            Итог: по бумагам правила соблюдены, а по факту бизнес теряет маржу на закупках.
-          </div>
-        </div>
-        <!-- Карточка 4 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7 flex flex-col justify-between" style="--delay: 150ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              04. Скрытая мотивация и откаты
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Личный интерес закупщика у «прикормленных» поставщиков
-            </h3>
-            <p class="card-body tabular-nums">
-              Большинство закупщиков работают честно, но откаты в снабжении случаются регулярно. Продавцы сами предлагают 5–15% «благодарности» за выбор нужного счета и аккуратно распределяют наценку по спецификации, поэтому по документам для руководства всё выглядит чисто.
-            </p>
-          </div>
-          <div class="relative z-10 mt-4 pt-3.5 sm:mt-6 sm:pt-4 border-t border-[var(--border-hairline)] text-sm font-semibold text-[var(--dark-green-ink)] leading-[1.45]">
-            Итог: даже один такой случай незаметно уводит из кассы сотни тысяч рублей.
-          </div>
-        </div>
-      </div>
-      <!-- Карточка 5: Сводный итог потерь (единая ось полей px-5 на мобильном) -->
-      <div class="dark-green-banner reveal-item rounded-2xl px-5 py-6 sm:p-8" style="--delay: 70ms;">
-        <span class="corner-tick top-2.5 left-2.5 border-t border-l"></span>
-        <span class="corner-tick top-2.5 right-2.5 border-t border-r"></span>
-        <span class="corner-tick bottom-2.5 left-2.5 border-b border-l"></span>
-        <span class="corner-tick bottom-2.5 right-2.5 border-b border-r"></span>
-        <div class="relative z-10">
-          <span class="badge-outline-red-dark mb-3.5 sm:mb-4">
-            05. Сколько в итоге теряет бизнес
-          </span>
-          <p class="text-sm sm:text-[15px] text-white/85 leading-[1.65] max-w-4xl tabular-nums">
-            Представьте, что у компании уходит <strong class="font-semibold text-white">4–5 млн ₽ в месяц</strong> на сырье, материалы, комплектующие и оборудование. Это <strong class="font-semibold text-white">15–20 обычных счетов по 200–300 тыс. ₽ каждый</strong> — небольшие суммы, ни одна из которых сама по себе не выглядит проблемной. Но в одном месте не попросили скидку за объем, во втором переплатили перекупщику вместо выхода на прямого поставщика, в третьем закрыли заявку формально в спешке, а в четвертом оказался зашит чужой личный интерес.
-          </p>
-          <div class="mt-4 pt-3.5 sm:mt-6 sm:pt-5 border-t border-white/15 text-sm sm:text-[15px] font-semibold text-white leading-[1.5] tabular-nums">
-            Итог: за год из таких счетов складывается от 50 млн ₽ расходов. На переплатах в 10–25% бизнес теряет <span class="text-[#FF8A93] underline decoration-[#FF8A93]/55 decoration-1 underline-offset-4">от 5 до 12,5 млн ₽ чистой прибыли</span>. Эти деньги уходят напрямую из кармана собственника.
-          </div>
-        </div>
-      </div>
-    </section>
-        <section id="screen-3" class="py-12 sm:py-20 border-b border-[var(--border-hairline)]">
-      <div class="reveal-item">
-        <h2 class="section-h2 text-[var(--dark-green-ink)] mb-3.5 sm:mb-4 max-w-3xl">
-          Как мы увеличиваем вашу маржу на закупках
-        </h2>
-        <p class="section-lead tabular-nums max-w-3xl mb-7 sm:mb-10">
-          Обычно за прибыль борются через рост продаж: ищут новых клиентов и нагружают цеха или бригады, хотя до 90% новой выручки всё равно съедают расходы. В закупках всё иначе — здесь каждый сохраненный рубль сразу и целиком ложится в вашу чистую прибыль. Мы достаем для вас эту маржу за счет трех рычагов.
-        </p>
-      </div>
-      <!-- 3 карточки со строго 3-строчными заголовками на десктопе и единым отступом p-5 на мобильном -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
-        <!-- Шаг 1 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 0ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              01. Больше и глубже ищем
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5 md:min-h-[4.35rem]">
-              Охватываем сотни производителей и крупных поставщиков по стране
-            </h3>
-            <p class="card-body">
-              Разбираем позицию по точным характеристикам, а не по названию из старого счета. Ищем вглубь рынка: выходим на производителей, крупных импортеров, региональные базы и закрытые B2B-кабинеты, которых нет в рекламе.
-            </p>
-          </div>
-        </div>
-        <!-- Шаг 2 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 60ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              02. Правильно считаем экономику
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5 md:min-h-[4.35rem]">
-              Считаем реальную выгоду для кассы, а не нижнюю строчку счета
-            </h3>
-            <p class="card-body tabular-nums">
-              Низкая сумма в счете часто оборачивается убытком на налогах и доставке. Приводим все предложения к честному итогу: считаем вычет НДС 22% против упрощенки, доставку до склада и цену денег при авансе или отсрочке.
-            </p>
-          </div>
-        </div>
-        <!-- Шаг 3 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 120ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              03. Лучше договариваемся
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5 md:min-h-[4.35rem]">
-              Ведем качественный торг с опорой на реальные альтернативы
-            </h3>
-            <p class="card-body">
-              Не останавливаемся на первом базовом прайсе. Опираясь на десятки собранных предложений и точный расчет экономики по вашей заявке, предметно торгуемся с поставщиками за лучшую цену, скидку под объем и отсрочку.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- Сравнительная таблица: Мобильные ведомости (<768px с полями p-5) + Полная таблица (>=768px) -->
-      <div id="financial-ledger" class="valorum-table-wrap reveal-item overflow-hidden" style="--delay: 70ms;">
-        <!-- МОБИЛЬНОЕ ПРЕДСТАВЛЕНИЕ (< 768px) -->
-        <div class="md:hidden divide-y divide-[var(--border-hairline)] tabular-nums">
-          <div class="bg-[var(--dark-green)] px-5 py-3 font-mono-tech text-[11px] tracking-[0.03em] text-[#E6F4F3] uppercase">
-            Пример расчета реальной экономики
-          </div>
-          <!-- Мобильный блок 1: Счет от снабженца -->
-          <div class="p-5 space-y-3.5">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <div class="text-sm font-semibold text-[var(--dark-green-ink)]">1. Счет от снабженца</div>
-                <div class="text-xs text-[var(--text-muted)] mt-0.5">Поставщик на упрощенке</div>
-              </div>
-              <span class="px-2 py-0.5 rounded bg-[var(--crimson-soft)] font-mono-tech text-[10.5px] font-medium text-[var(--crimson-text)] shrink-0">Кажется дешевле</span>
-            </div>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs">
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Сумма в счете</div>
-                <div class="ledger-num font-semibold text-[var(--dark-green-ink)] mt-0.5" data-count="920000" data-prefix="" data-suffix=" ₽">920 000 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Вычет НДС (Без НДС)</div>
-                <div class="ledger-num text-[var(--text-secondary)] mt-0.5">0 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Доставка (Самовывоз)</div>
-                <div class="ledger-num font-semibold text-[var(--crimson-text)] mt-0.5" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Аванс за 45 дн.*</div>
-                <div class="ledger-num font-semibold text-[var(--crimson-text)] mt-0.5" data-count="22685" data-prefix="+" data-suffix=" ₽*">+22 685 ₽*</div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between rounded-xl bg-[var(--crimson-soft)] px-3.5 py-2.5">
-              <span class="text-xs font-medium text-[var(--crimson-text)]">Фактический расход</span>
-              <span class="ledger-num font-semibold text-[var(--crimson-text)]" data-count="970685" data-prefix="" data-suffix=" ₽">970 685 ₽</span>
-            </div>
-          </div>
-          <!-- Мобильный блок 2: Найденный поставщик -->
-          <div class="p-5 space-y-3.5">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <div class="text-sm font-semibold text-[var(--dark-green-ink)]">2. Найденный поставщик</div>
-                <div class="text-xs text-[var(--text-muted)] mt-0.5">Плательщик НДС 22%</div>
-              </div>
-              <span class="px-2 py-0.5 rounded bg-[var(--bg-subtle)] font-mono-tech text-[10.5px] font-medium text-[var(--good-text)] shrink-0">Кажется дороже</span>
-            </div>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs">
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Сумма в счете</div>
-                <div class="ledger-num font-semibold text-[var(--dark-green-ink)] mt-0.5" data-count="1000000" data-prefix="" data-suffix=" ₽">1 000 000 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">НДС 22% к вычету</div>
-                <div class="ledger-num font-semibold text-[var(--good-text)] mt-0.5" data-count="180328" data-prefix="−" data-suffix=" ₽">−180 328 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Доставка до склада</div>
-                <div class="ledger-num text-[var(--text-secondary)] mt-0.5">0 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Отсрочка 45 дн.</div>
-                <div class="ledger-num text-[var(--text-secondary)] mt-0.5">0 ₽</div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between rounded-xl bg-[var(--bg-subtle)] px-3.5 py-2.5">
-              <span class="text-xs font-medium text-[var(--text-secondary)]">Фактический расход</span>
-              <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="819672" data-prefix="" data-suffix=" ₽">819 672 ₽</span>
-            </div>
-          </div>
-          <!-- Мобильный блок 3: Итоговая выгода -->
-          <div class="p-5 bg-[var(--good-soft)] space-y-3.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-sm font-semibold text-[var(--dark-green-ink)]">Итоговая выгода</span>
-              <span class="text-xs text-[var(--text-secondary)]">Для компании на ОСНО</span>
-            </div>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs">
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Разница в счете</div>
-                <div class="ledger-num font-medium text-[var(--text-secondary)] mt-0.5" data-count="80000" data-prefix="−" data-suffix=" ₽">−80 000 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Выигрыш на НДС</div>
-                <div class="ledger-num font-semibold text-[var(--good-text)] mt-0.5" data-count="180328" data-prefix="+" data-suffix=" ₽">+180 328 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Выигрыш на доставке</div>
-                <div class="ledger-num font-semibold text-[var(--good-text)] mt-0.5" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</div>
-              </div>
-              <div>
-                <div class="text-[11px] text-[var(--text-muted)]">Выигрыш на отсрочке</div>
-                <div class="ledger-num font-semibold text-[var(--good-text)] mt-0.5" data-count="22685" data-prefix="+" data-suffix=" ₽">+22 685 ₽</div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between rounded-xl bg-[var(--bright-green)] px-3.5 py-3">
-              <span class="text-xs font-semibold text-[var(--bright-green-ink)]">Прибавка к марже</span>
-              <span class="font-mono-tech text-[15px] font-semibold text-[var(--bright-green-ink)]" data-count="151013" data-prefix="+" data-suffix=" ₽">+151 013 ₽</span>
-            </div>
-          </div>
-        </div>
-        <!-- ДЕСКТОПНОЕ И ПЛАНШЕТНОЕ ПРЕДСТАВЛЕНИЕ (>= 768px) -->
-        <div class="hidden md:block overflow-x-auto">
-          <table class="w-full text-left border-collapse text-sm tabular-nums">
-            <thead>
-              <tr class="bg-[var(--dark-green)] font-mono-tech text-[11px] tracking-[0.03em] text-[#E6F4F3] uppercase whitespace-nowrap">
-                <th class="py-3.5 px-5 font-medium">Пример расчета</th>
-                <th class="py-3.5 px-4 font-medium">Сумма в счете</th>
-                <th class="py-3.5 px-4 font-medium">Вычет НДС</th>
-                <th class="py-3.5 px-4 font-medium">Доставка</th>
-                <th class="py-3.5 px-4 font-medium">Цена денег</th>
-                <th class="py-3.5 px-5 font-medium">Реальный расход</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-[var(--border-hairline)]">
-              <!-- Строка 1: Счет от снабженца -->
-              <tr class="ledger-row-bad whitespace-nowrap">
-                <td class="py-4 px-5 font-semibold text-[var(--dark-green-ink)]">
-                  1. Счет от снабженца
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Поставщик на упрощенке</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--dark-green-ink)]" data-count="920000" data-prefix="" data-suffix=" ₽">920 000 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Кажется дешевле</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num text-[var(--text-secondary)]">0 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] mt-1">Без НДС</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--crimson-text)]" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Самовывоз</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--crimson-text)]" data-count="22685" data-prefix="+" data-suffix=" ₽*">+22 685 ₽*</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">100% аванс за 45 дн.*</div>
-                </td>
-                <td class="py-4 px-5 bg-[var(--crimson-soft)]">
-                  <span class="ledger-num font-semibold text-[var(--crimson-text)]" data-count="970685" data-prefix="" data-suffix=" ₽">970 685 ₽</span>
-                  <div class="text-xs font-normal text-[var(--crimson-text)]/80 mt-1">Фактический расход</div>
-                </td>
-              </tr>
-              <!-- Строка 2: Найденный поставщик -->
-              <tr class="ledger-row-good whitespace-nowrap">
-                <td class="py-4 px-5 font-semibold text-[var(--dark-green-ink)]">
-                  2. Найденный поставщик
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Плательщик НДС 22%</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--dark-green-ink)]" data-count="1000000" data-prefix="" data-suffix=" ₽">1 000 000 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Кажется дороже</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="180328" data-prefix="−" data-suffix=" ₽">−180 328 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">НДС 22% к вычету</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num text-[var(--text-secondary)]">0 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] mt-1">Включена до склада</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num text-[var(--text-secondary)]">0 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] mt-1">Отсрочка 45 дн.</div>
-                </td>
-                <td class="py-4 px-5 bg-[var(--bg-subtle)]">
-                  <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="819672" data-prefix="" data-suffix=" ₽">819 672 ₽</span>
-                  <div class="text-xs font-normal text-[var(--text-muted)] mt-1">Фактический расход</div>
-                </td>
-              </tr>
-              <!-- Строка 3: Итоговая выгода -->
-              <tr class="bg-[var(--good-soft)] whitespace-nowrap">
-                <td class="py-4 px-5 font-semibold text-[var(--dark-green-ink)]">
-                  Итоговая выгода
-                  <div class="text-xs text-[var(--text-secondary)] font-normal mt-1">Для компании на ОСНО</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-medium text-[var(--text-secondary)]" data-count="80000" data-prefix="−" data-suffix=" ₽">−80 000 ₽</span>
-                  <div class="text-xs text-[var(--text-muted)] font-normal mt-1">Разница в счете</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="180328" data-prefix="+" data-suffix=" ₽">+180 328 ₽</span>
-                  <div class="text-xs text-[var(--text-secondary)] font-normal mt-1">Выигрыш на НДС</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</span>
-                  <div class="text-xs text-[var(--text-secondary)] font-normal mt-1">Выигрыш на доставке</div>
-                </td>
-                <td class="py-4 px-4">
-                  <span class="ledger-num font-semibold text-[var(--good-text)]" data-count="22685" data-prefix="+" data-suffix=" ₽">+22 685 ₽</span>
-                  <div class="text-xs text-[var(--text-secondary)] font-normal mt-1">Выигрыш на отсрочке</div>
-                </td>
-                <td class="py-4 px-5 bg-[var(--bright-green)]">
-                  <span class="ledger-num font-semibold text-[var(--bright-green-ink)]" data-count="151013" data-prefix="+" data-suffix=" ₽">+151 013 ₽</span>
-                  <div class="text-xs font-medium text-[var(--bright-green-ink)]/80 mt-1">Прибавка к марже</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Короткая сноска к расчету ставки -->
-      <p class="reveal-item mt-2.5 sm:mt-3 px-1 font-mono-tech text-[11px] text-[var(--text-muted)] tabular-nums" style="--delay: 100ms;">
-        * Рассчитано из ставки 20% годовых.
-      </p>
-    </section>
-        <section id="screen-4" class="py-12 sm:py-20 border-b border-[var(--border-hairline)]">
-      <div class="reveal-item">
-        <h2 class="section-h2 text-[var(--dark-green-ink)] mb-3.5 sm:mb-4 max-w-3xl">
-          С нами комфортно и безопасно начать
-        </h2>
-        <p class="section-lead max-w-3xl mb-7 sm:mb-10">
-          Отдел снабжения — важная опора любой компании: даже если сейчас он покупает дороже рынка, материалы приезжают, а цеха и объекты работают. Резко перекраивать этот процесс всегда рискованно. Поэтому мы не ломаем то, что у вас уже работает, а подключаемся аккуратно и параллельно.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-        <!-- Карточка 1 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 0ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              01. Без внедрений
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Работаем по открытым счетам, сметам и спецификациям
-            </h3>
-            <p class="card-body">
-              Нам не нужен доступ к вашей 1С, внутренним базам и корпоративным учеткам. Вы передаете только открытые сопроводительные документы по закупке в привычном виде (PDF, Excel или скан счета) — без настроек, программистов и вмешательства в ИТ-контур.
-            </p>
-          </div>
-        </div>
-        <!-- Карточка 2 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 50ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              02. Без сбоев в снабжении
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Подключаемся параллельно и сохраняем привычный ритм
-            </h3>
-            <p class="card-body">
-              Прорабатываем рынок полностью независимо от вашей текущей операционки. Штатные снабженцы спокойно закрывают заявки в обычном режиме, не нервничают и не отвлекаются, пока вы сами не передадите им готовые контакты и счета с лучшими условиями.
-            </p>
-          </div>
-        </div>
-        <!-- Карточка 3 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 100ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              03. Без фирм-пустышек
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Отбираем действующих поставщиков с товаром в наличии
-            </h3>
-            <p class="card-body">
-              Отсеиваем однодневки по открытым госреестрам: смотрим реальный срок работы на рынке, отсутствие долгов у приставов, банкротств и судебных споров. В итоговый отчет попадают только действующие ООО и ИП, подтвердившие нужный объем на складе.
-            </p>
-          </div>
-        </div>
-        <!-- Карточка 4 -->
-        <div class="valorum-card reveal-item p-5 sm:p-7" style="--delay: 150ms;">
-          <div class="relative z-10">
-            <span class="badge-outline-red mb-3.5 sm:mb-4">
-              04. Без оплаты за процесс
-            </span>
-            <h3 class="card-h3 mb-2 sm:mb-2.5">
-              Вы платите за нашу работу только при реальном результате
-            </h3>
-            <p class="card-body">
-              Первую проверку проводим бесплатно, чтобы вы заранее увидели экономию в цифрах. А в дальнейшей работе действует твердое правило: если мы не нашли и не выторговали условия выгоднее ваших текущих — наши услуги стоят для вас <strong class="font-semibold text-[var(--good-text)] tabular-nums">ровно 0 рублей</strong>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-        <section id="screen-5" class="py-12 sm:py-20">
-      <div class="dark-green-banner reveal-item rounded-2xl px-5 py-6 sm:p-10 lg:p-12">
-        <span class="corner-tick top-2.5 left-2.5 sm:top-3 sm:left-3 border-t border-l"></span>
-        <span class="corner-tick top-2.5 right-2.5 sm:top-3 sm:right-3 border-t border-r"></span>
-        <span class="corner-tick bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 border-b border-l"></span>
-        <span class="corner-tick bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 border-b border-r"></span>
-        <h2 class="section-h2 text-white mb-3.5 sm:mb-4 max-w-3xl">
-          Напишите нам в Telegram — обсудим вашу задачу, и в течение суток вы получите результат
-        </h2>
-        <p class="text-[15px] sm:text-[17px] text-white/85 leading-[1.62] tabular-nums max-w-2xl mb-6 sm:mb-8">
-          На примере 1–3 позиций из ваших текущих счетов найдем прямых поставщиков, сведем честную экономику с НДС и доставкой и без обязательств покажем точную экономию в рублях.
-        </p>
-        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
-          <!-- Боевой шлюз приема заявок в Telegram-боте Валорум (@valorum_official_bot) -->
-          <a href="https://t.me/valorum_official_bot?start=landing_cta" data-bot-cta target="_blank" rel="noopener noreferrer" class="btn-valorum w-full sm:w-auto inline-flex justify-center items-center gap-2 sm:gap-2.5 min-h-[50px] sm:min-h-[52px] px-4 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-[13px] sm:text-[15px] leading-[1.3] text-center shrink-0">
-            <span>Написать в Telegram и обсудить задачу</span>
-            <svg class="w-4 h-4 text-[var(--dark-green)] shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"/>
-            </svg>
-          </a>
-          <div class="inline-flex items-center justify-center sm:justify-start gap-2.5 text-xs sm:text-[13px] leading-[1.4] text-white/85 tabular-nums">
-            <span class="live-red-dot-dark w-2 h-2 rounded-full bg-[#FF7682] shrink-0"></span>
-            <span>Получите результат за 24 часа. <strong class="font-semibold text-white">Бесплатно.</strong></span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- ЕДИНЫЙ СТАНДАРТ ФУТЕРА -->
-  <footer class="bg-[var(--bg-surface)] border-t border-[var(--border-hairline)]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-9 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 lg:gap-8">
-      <!-- Колонка 1 (Слева): Логотип + однострочный дескриптор -->
-      <div class="flex flex-col items-start gap-[5px]">
-        <a href="#screen-1" class="brand-lockup" aria-label="Валорум — наверх страницы">
-          <svg class="brand-logo-box" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="7.5" fill="#0D3B3E"/>
-            <rect x="1" y="1" width="30" height="30" rx="6.5" stroke="#1C686D" stroke-width="1"/>
-            <path d="M8.5 10L16 23.5L23.5 10" stroke="#29CBB6" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="13.9" y="7" width="4.2" height="4.2" rx="1" fill="#E04854"/>
-          </svg>
-          <span class="brand-wordmark">ВАЛОРУМ</span>
-        </a>
-        <div class="text-[12px] sm:text-[12.5px] leading-[1.4] text-[var(--text-secondary)] lg:whitespace-nowrap">
-          Повышение эффективности закупок и снабжения
-        </div>
-      </div>
-      <!-- Колонка 2 (Центр): Прямая связь с руководителем -->
-      <div class="flex flex-col items-start gap-1.5 sm:gap-1">
-        <div class="text-[12px] sm:text-[12.5px] font-semibold text-[var(--dark-green-ink)] leading-[1.35]">
-          Связаться с руководителем
-        </div>
-        <div class="flex flex-col gap-1 sm:gap-0.5 font-mono-tech text-xs leading-[1.45]">
-          <div class="inline-flex items-center whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--crimson)] mr-2 shrink-0"></span>
-            <span class="text-[var(--text-muted)]">TG:</span>
-            <a href="https://t.me/SerjMuzikin" target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] hover:text-[var(--dark-green)] transition-colors ml-1.5 py-0.5 sm:py-0">@SerjMuzikin</a>
-          </div>
-          <div class="inline-flex items-center whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--crimson)] mr-2 shrink-0"></span>
-            <span class="text-[var(--text-muted)]">EMAIL:</span>
-            <a href="mailto:muzikin.s@yandex.ru" class="text-[var(--text-secondary)] hover:text-[var(--dark-green)] transition-colors ml-1.5 py-0.5 sm:py-0">muzikin.s@yandex.ru</a>
-          </div>
-        </div>
-      </div>
-      <!-- Колонка 3 (Справа): Две чистые строки (на мобильном отделены тонкой чертой) -->
-      <div class="w-full lg:w-auto pt-4 lg:pt-0 border-t border-[var(--border-hairline)] lg:border-0 flex flex-col items-start lg:items-end lg:text-right gap-1">
-        <div class="text-[12px] leading-[1.4] text-[var(--text-secondary)] lg:whitespace-nowrap">
-          Сайт не собирает и не хранит ваши персональные данные.
-        </div>
-        <div class="font-mono-tech text-[11.5px] leading-[1.4] text-[var(--text-muted)] lg:whitespace-nowrap">
-          © 2026 Валорум. Все права защищены.
-        </div>
-      </div>
+    <div class="hero-bullet">
+     <span class="hero-check-box">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+       <path class="check-stroke" style="--check-delay: 0.32s;" d="M2.5 6.5L5 9L9.5 3.5"/>
+      </svg>
+     </span>
+     <span><strong>Правильно считаем экономику:</strong> оцениваем реальную стоимость закупки с учетом вашего НДС, доставки и отсрочки платежа.</span>
     </div>
-  </footer>
-  <!-- Инженерная кинетика: 100% четкость шрифтов (сброс GPU-слоя после входа) -->
-  <script src="kinematics.js" defer></script>
+    <div class="hero-bullet">
+     <span class="hero-check-box">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+       <path class="check-stroke" style="--check-delay: 0.44s;" d="M2.5 6.5L5 9L9.5 3.5"/>
+      </svg>
+     </span>
+     <span><strong>Договариваемся на лучшие условия:</strong> опираемся на конкурирующие предложения и выторговываем максимальные скидки под ваш объем.</span>
+    </div>
+   </div>
+   <div class="reveal-item flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5" style="--delay: 120ms;">
+    <a href="#screen-5" class="btn-valorum inline-flex w-full sm:w-auto justify-center items-center gap-2 sm:gap-2.5 min-h-[50px] px-4 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-[13px] sm:text-[15px] leading-[1.3] text-center shrink-0">
+     <span>Повысить эффективность закупок и снабжения</span>
+     <svg class="w-4 h-4 text-[var(--dark-green)] shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"/>
+     </svg>
+    </a>
+    <div class="inline-flex items-center justify-center sm:justify-start gap-2.5 text-xs sm:text-[13px] leading-[1.4] text-[var(--text-secondary)] tabular-nums">
+     <span class="live-red-dot w-2 h-2 rounded-full bg-[var(--crimson)] shrink-0"></span>
+     <span>Получите результат за 24 часа. <strong class="font-semibold text-[var(--dark-green-ink)]">Бесплатно.</strong></span>
+    </div>
+   </div>
+  </section>
+  <section id="screen-2" class="valorum-section">
+   <div class="reveal-item">
+    <h2 class="section-h2">Почему даже со штатным отделом снабжения вы переплачиваете</h2>
+    <p class="section-lead">Пока бизнес небольшой и ключевых поставщиков пара десятков, собственник сам помнит цены и сразу видит переплату. Но с ростом компании счет идет на сотни контрагентов и тысячи позиций — проверить каждую строчку лично уже невозможно, и приходится полностью полагаться на штатных снабженцев. Внешне отдел загружен, счета согласованы и материалы приезжают вовремя, но внутри этого привычного процесса вы незаметно теряете маржу по четырем причинам.</p>
+   </div>
+   <div class="cards-grid-2 cards-grid--spaced">
+    <div class="valorum-card valorum-card--flex reveal-item" style="--delay: 0ms;">
+     <div>
+      <span class="badge-outline-red">01. Нехватка времени</span>
+      <h3 class="card-h3">У снабженцев физически нет времени глубоко прорабатывать рынок</h3>
+      <p class="card-body">Рабочий день уходит на текучку: срочные заявки с мест, согласование доставок, сверку накладных, закрывающие документы и 1С. Прозвонить десятки компаний, собрать прайсы и вручную свести сотни строк из разных счетов человеку некогда — на поиск нет ни сил, ни внимания.</p>
+     </div>
+     <div class="card-summary">Итог: снабженец покупает не там, где выгоднее, а там, где меньше заморочек.</div>
+    </div>
+    <div class="valorum-card valorum-card--flex reveal-item" style="--delay: 50ms;">
+     <div>
+      <span class="badge-outline-red">02. Покупка у посредников</span>
+      <h3 class="card-h3">Заказы достаются тем, кто всегда на виду и активнее продает</h3>
+      <p class="card-body">Покупают либо там, где брали всегда, либо у тех, кто сам активно мелькает перед глазами. Главная задача посредников — продвигать себя в рекламе, каталогах и звонках, тогда как реальные производители заняты выпуском продукции и часто вообще отсутствуют в инфополе.</p>
+     </div>
+     <div class="card-summary">Итог: вы из своей чистой прибыли оплачиваете чужую посредническую наценку.</div>
+    </div>
+    <div class="valorum-card valorum-card--flex reveal-item" style="--delay: 100ms;">
+     <div>
+      <span class="badge-outline-red">03. Обычная лень</span>
+      <h3 class="card-h3">Приносят «три счета для галочки» и не заморачиваются с условиями</h3>
+      <p class="card-body">Оклад закупщика обычно не привязан к экономии, поэтому он не заинтересован глубоко считать варианты и вести предметный торг. Правило «собрать несколько КП» закрывают формально — прикладывают пару счетов подороже, лишь бы отстали финансисты, бухгалтерия или СБ.</p>
+     </div>
+     <div class="card-summary">Итог: по бумагам правила соблюдены, а по факту бизнес теряет маржу на закупках.</div>
+    </div>
+    <div class="valorum-card valorum-card--flex reveal-item" style="--delay: 150ms;">
+     <div>
+      <span class="badge-outline-red">04. Скрытая мотивация и откаты</span>
+      <h3 class="card-h3">Личный интерес закупщика у «прикормленных» поставщиков</h3>
+      <p class="card-body tabular-nums">Большинство закупщиков работают честно, но откаты в снабжении случаются регулярно. Продавцы сами предлагают 5–15% «благодарности» за выбор нужного счета и аккуратно распределяют наценку по спецификации, поэтому по документам для руководства всё выглядит чисто.</p>
+     </div>
+     <div class="card-summary">Итог: даже один такой случай незаметно уводит из кассы сотни тысяч рублей.</div>
+    </div>
+   </div>
+   <div class="dark-green-banner reveal-item" style="--delay: 70ms;">
+    <span class="corner-tick tl"></span>
+    <span class="corner-tick tr"></span>
+    <span class="corner-tick bl"></span>
+    <span class="corner-tick br"></span>
+    <div class="relative">
+     <span class="badge-outline-red-dark">05. Сколько в итоге теряет бизнес</span>
+     <p class="text-sm sm:text-[15px] text-white/85 leading-[1.65] max-w-4xl tabular-nums">
+      Представьте, что у компании уходит <strong class="font-semibold text-white">4–5 млн ₽ в месяц</strong> на сырье, материалы, комплектующие и оборудование. Это <strong class="font-semibold text-white">15–20 обычных счетов по 200–300 тыс. ₽ каждый</strong> — небольшие суммы, ни одна из которых сама по себе не выглядит проблемной. Но в одном месте не попросили скидку за объем, во втором переплатили перекупщику вместо выхода на прямого поставщика, в третьем закрыли заявку формально в спешке, а в четвертом оказался зашит чужой личный интерес.
+     </p>
+     <div class="mt-4 pt-3.5 sm:mt-6 sm:pt-5 border-t border-white/15 text-sm sm:text-[15px] font-semibold text-white leading-[1.5] tabular-nums">
+      Итог: за год из таких счетов складывается от 50 млн ₽ расходов. На переплатах в 10–25% бизнес теряет <span class="text-[#FF8A93] underline decoration-[#FF8A93]/55 decoration-1 underline-offset-4">от 5 до 12,5 млн ₽ чистой прибыли</span>. Эти деньги уходят напрямую из кармана собственника.
+     </div>
+    </div>
+   </div>
+  </section>
+  <section id="screen-3" class="valorum-section">
+   <div class="reveal-item">
+    <h2 class="section-h2">Как мы увеличиваем вашу маржу на закупках</h2>
+    <p class="section-lead tabular-nums">Обычно за прибыль борются через рост продаж: ищут новых клиентов и нагружают цеха или бригады, хотя до 90% новой выручки всё равно съедают расходы. В закупках всё иначе — здесь каждый сохраненный рубль сразу и целиком ложится в вашу чистую прибыль. Мы достаем для вас эту маржу за счет трех рычагов.</p>
+   </div>
+   <div class="cards-grid-3 cards-grid--spaced">
+    <div class="valorum-card reveal-item" style="--delay: 0ms;">
+     <div>
+      <span class="badge-outline-red">01. Больше и глубже ищем</span>
+      <h3 class="card-h3 card-h3--3row">Охватываем сотни производителей и крупных поставщиков по стране</h3>
+      <p class="card-body">Разбираем позицию по точным характеристикам, а не по названию из старого счета. Ищем вглубь рынка: выходим на производителей, крупных импортеров, региональные базы и закрытые B2B-кабинеты, которых нет в рекламе.</p>
+     </div>
+    </div>
+    <div class="valorum-card reveal-item" style="--delay: 60ms;">
+     <div>
+      <span class="badge-outline-red">02. Правильно считаем экономику</span>
+      <h3 class="card-h3 card-h3--3row">Считаем реальную выгоду для кассы, а не нижнюю строчку счета</h3>
+      <p class="card-body tabular-nums">Низкая сумма в счете часто оборачивается убытком на налогах и доставке. Приводим все предложения к честному итогу: считаем вычет НДС 22% против упрощенки, доставку до склада и цену денег при авансе или отсрочке.</p>
+     </div>
+    </div>
+    <div class="valorum-card reveal-item" style="--delay: 120ms;">
+     <div>
+      <span class="badge-outline-red">03. Лучше договариваемся</span>
+      <h3 class="card-h3 card-h3--3row">Ведем качественный торг с опорой на реальные альтернативы</h3>
+      <p class="card-body">Не останавливаемся на первом базовом прайсе. Опираясь на десятки собранных предложений и точный расчет экономики по вашей заявке, предметно торгуемся с поставщиками за лучшую цену, скидку под объем и отсрочку.</p>
+     </div>
+    </div>
+   </div>
+   <div id="financial-ledger" class="valorum-table-wrap reveal-item" style="--delay: 70ms;">
+    <div class="md:hidden divide-y divide-[var(--border-hairline)] tabular-nums">
+     <div class="ledger-head px-5 py-3">Пример расчета реальной экономики</div>
+     <div class="ledger-m-block">
+      <div class="flex items-start justify-between gap-2">
+       <div>
+        <div class="text-sm val-ink">1. Счет от снабженца</div>
+        <div class="text-xs text-[var(--text-muted)] mt-0.5">Поставщик на упрощенке</div>
+       </div>
+       <span class="px-2 py-0.5 rounded bg-[var(--crimson-soft)] font-mono-tech text-[10.5px] font-medium text-[var(--crimson-text)] shrink-0">Кажется дешевле</span>
+      </div>
+      <div class="ledger-m-grid">
+       <div>
+        <div class="ledger-m-lbl">Сумма в счете</div>
+        <div class="ledger-num val-ink" data-count="920000" data-prefix="" data-suffix=" ₽">920 000 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Вычет НДС (Без НДС)</div>
+        <div class="ledger-num val-sec">0 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Доставка (Самовывоз)</div>
+        <div class="ledger-num val-bad" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Аванс за 45 дн.*</div>
+        <div class="ledger-num val-bad" data-count="22685" data-prefix="+" data-suffix=" ₽*">+22 685 ₽*</div>
+       </div>
+      </div>
+      <div class="ledger-m-total ledger-m-total--bad">
+       <span class="text-xs font-medium text-[var(--crimson-text)]">Фактический расход</span>
+       <span class="ledger-num val-bad" data-count="970685" data-prefix="" data-suffix=" ₽">970 685 ₽</span>
+      </div>
+     </div>
+     <div class="ledger-m-block">
+      <div class="flex items-start justify-between gap-2">
+       <div>
+        <div class="text-sm val-ink">2. Найденный поставщик</div>
+        <div class="text-xs text-[var(--text-muted)] mt-0.5">Плательщик НДС 22%</div>
+       </div>
+       <span class="px-2 py-0.5 rounded bg-[var(--bg-subtle)] font-mono-tech text-[10.5px] font-medium text-[var(--good-text)] shrink-0">Кажется дороже</span>
+      </div>
+      <div class="ledger-m-grid">
+       <div>
+        <div class="ledger-m-lbl">Сумма в счете</div>
+        <div class="ledger-num val-ink" data-count="1000000" data-prefix="" data-suffix=" ₽">1 000 000 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">НДС 22% к вычету</div>
+        <div class="ledger-num val-good" data-count="180328" data-prefix="−" data-suffix=" ₽">−180 328 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Доставка до склада</div>
+        <div class="ledger-num val-sec">0 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Отсрочка 45 дн.</div>
+        <div class="ledger-num val-sec">0 ₽</div>
+       </div>
+      </div>
+      <div class="ledger-m-total ledger-m-total--sub">
+       <span class="text-xs font-medium text-[var(--text-secondary)]">Фактический расход</span>
+       <span class="ledger-num val-good" data-count="819672" data-prefix="" data-suffix=" ₽">819 672 ₽</span>
+      </div>
+     </div>
+     <div class="ledger-m-block ledger-m-block--win">
+      <div class="flex items-center justify-between gap-2">
+       <span class="text-sm val-ink">Итоговая выгода</span>
+       <span class="text-xs text-[var(--text-secondary)]">Для компании на ОСНО</span>
+      </div>
+      <div class="ledger-m-grid">
+       <div>
+        <div class="ledger-m-lbl">Разница в счете</div>
+        <div class="ledger-num val-sec-m" data-count="80000" data-prefix="−" data-suffix=" ₽">−80 000 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Выигрыш на НДС</div>
+        <div class="ledger-num val-good" data-count="180328" data-prefix="+" data-suffix=" ₽">+180 328 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Выигрыш на доставке</div>
+        <div class="ledger-num val-good" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</div>
+       </div>
+       <div>
+        <div class="ledger-m-lbl">Выигрыш на отсрочке</div>
+        <div class="ledger-num val-good" data-count="22685" data-prefix="+" data-suffix=" ₽">+22 685 ₽</div>
+       </div>
+      </div>
+      <div class="ledger-m-total ledger-m-total--win">
+       <span class="text-xs val-win">Прибавка к марже</span>
+       <span class="font-mono-tech text-[15px] val-win" data-count="151013" data-prefix="+" data-suffix=" ₽">+151 013 ₽</span>
+      </div>
+     </div>
+    </div>
+    <div class="hidden md:block overflow-x-auto">
+     <table class="tabular-nums">
+      <thead>
+       <tr class="ledger-head whitespace-nowrap">
+        <th>Пример расчета</th>
+        <th>Сумма в счете</th>
+        <th>Вычет НДС</th>
+        <th>Доставка</th>
+        <th>Цена денег</th>
+        <th>Реальный расход</th>
+       </tr>
+      </thead>
+      <tbody class="divide-y divide-[var(--border-hairline)]">
+       <tr class="ledger-row-bad">
+        <td class="val-ink">
+         1. Счет от снабженца
+         <div class="ledger-sub">Поставщик на упрощенке</div>
+        </td>
+        <td>
+         <span class="ledger-num val-ink" data-count="920000" data-prefix="" data-suffix=" ₽">920 000 ₽</span>
+         <div class="ledger-sub">Кажется дешевле</div>
+        </td>
+        <td>
+         <span class="ledger-num val-sec">0 ₽</span>
+         <div class="ledger-sub">Без НДС</div>
+        </td>
+        <td>
+         <span class="ledger-num val-bad" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</span>
+         <div class="ledger-sub">Самовывоз</div>
+        </td>
+        <td>
+         <span class="ledger-num val-bad" data-count="22685" data-prefix="+" data-suffix=" ₽*">+22 685 ₽*</span>
+         <div class="ledger-sub">100% аванс за 45 дн.*</div>
+        </td>
+        <td class="bg-[var(--crimson-soft)]">
+         <span class="ledger-num val-bad" data-count="970685" data-prefix="" data-suffix=" ₽">970 685 ₽</span>
+         <div class="ledger-sub ledger-sub--bad">Фактический расход</div>
+        </td>
+       </tr>
+       <tr class="ledger-row-good">
+        <td class="val-ink">
+         2. Найденный поставщик
+         <div class="ledger-sub">Плательщик НДС 22%</div>
+        </td>
+        <td>
+         <span class="ledger-num val-ink" data-count="1000000" data-prefix="" data-suffix=" ₽">1 000 000 ₽</span>
+         <div class="ledger-sub">Кажется дороже</div>
+        </td>
+        <td>
+         <span class="ledger-num val-good" data-count="180328" data-prefix="−" data-suffix=" ₽">−180 328 ₽</span>
+         <div class="ledger-sub">НДС 22% к вычету</div>
+        </td>
+        <td>
+         <span class="ledger-num val-sec">0 ₽</span>
+         <div class="ledger-sub">Включена до склада</div>
+        </td>
+        <td>
+         <span class="ledger-num val-sec">0 ₽</span>
+         <div class="ledger-sub">Отсрочка 45 дн.</div>
+        </td>
+        <td class="bg-[var(--bg-subtle)]">
+         <span class="ledger-num val-good" data-count="819672" data-prefix="" data-suffix=" ₽">819 672 ₽</span>
+         <div class="ledger-sub">Фактический расход</div>
+        </td>
+       </tr>
+       <tr class="bg-[var(--good-soft)]">
+        <td class="val-ink">
+         Итоговая выгода
+         <div class="ledger-sub ledger-sub--sec">Для компании на ОСНО</div>
+        </td>
+        <td>
+         <span class="ledger-num val-sec-m" data-count="80000" data-prefix="−" data-suffix=" ₽">−80 000 ₽</span>
+         <div class="ledger-sub">Разница в счете</div>
+        </td>
+        <td>
+         <span class="ledger-num val-good" data-count="180328" data-prefix="+" data-suffix=" ₽">+180 328 ₽</span>
+         <div class="ledger-sub ledger-sub--sec">Выигрыш на НДС</div>
+        </td>
+        <td>
+         <span class="ledger-num val-good" data-count="28000" data-prefix="+" data-suffix=" ₽">+28 000 ₽</span>
+         <div class="ledger-sub ledger-sub--sec">Выигрыш на доставке</div>
+        </td>
+        <td>
+         <span class="ledger-num val-good" data-count="22685" data-prefix="+" data-suffix=" ₽">+22 685 ₽</span>
+         <div class="ledger-sub ledger-sub--sec">Выигрыш на отсрочке</div>
+        </td>
+        <td class="bg-[var(--bright-green)]">
+         <span class="ledger-num val-win" data-count="151013" data-prefix="+" data-suffix=" ₽">+151 013 ₽</span>
+         <div class="ledger-sub ledger-sub--win">Прибавка к марже</div>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <p class="reveal-item mt-2.5 sm:mt-3 px-1 font-mono-tech text-[11px] text-[var(--text-muted)] tabular-nums" style="--delay: 100ms;">* Рассчитано из ставки 20% годовых.</p>
+  </section>
+  <section id="screen-4" class="valorum-section">
+   <div class="reveal-item">
+    <h2 class="section-h2">С нами комфортно и безопасно начать</h2>
+    <p class="section-lead">Отдел снабжения — важная опора любой компании: даже если сейчас он покупает дороже рынка, материалы приезжают, а цеха и объекты работают. Резко перекраивать этот процесс всегда рискованно. Поэтому мы не ломаем то, что у вас уже работает, а подключаемся аккуратно и параллельно.</p>
+   </div>
+   <div class="cards-grid-2">
+    <div class="valorum-card reveal-item" style="--delay: 0ms;">
+     <div>
+      <span class="badge-outline-red">01. Без внедрений</span>
+      <h3 class="card-h3">Работаем по открытым счетам, сметам и спецификациям</h3>
+      <p class="card-body">Нам не нужен доступ к вашей 1С, внутренним базам и корпоративным учеткам. Вы передаете только открытые сопроводительные документы по закупке в привычном виде (PDF, Excel или скан счета) — без настроек, программистов и вмешательства в ИТ-контур.</p>
+     </div>
+    </div>
+    <div class="valorum-card reveal-item" style="--delay: 50ms;">
+     <div>
+      <span class="badge-outline-red">02. Без сбоев в снабжении</span>
+      <h3 class="card-h3">Подключаемся параллельно и сохраняем привычный ритм</h3>
+      <p class="card-body">Прорабатываем рынок полностью независимо от вашей текущей операционки. Штатные снабженцы спокойно закрывают заявки в обычном режиме, не нервничают и не отвлекаются, пока вы сами не передадите им готовые контакты и счета с лучшими условиями.</p>
+     </div>
+    </div>
+    <div class="valorum-card reveal-item" style="--delay: 100ms;">
+     <div>
+      <span class="badge-outline-red">03. Без фирм-пустышек</span>
+      <h3 class="card-h3">Отбираем действующих поставщиков с товаром в наличии</h3>
+      <p class="card-body">Отсеиваем однодневки по открытым госреестрам: смотрим реальный срок работы на рынке, отсутствие долгов у приставов, банкротств и судебных споров. В итоговый отчет попадают только действующие ООО и ИП, подтвердившие нужный объем на складе.</p>
+     </div>
+    </div>
+    <div class="valorum-card reveal-item" style="--delay: 150ms;">
+     <div>
+      <span class="badge-outline-red">04. Без оплаты за процесс</span>
+      <h3 class="card-h3">Вы платите за нашу работу только при реальном результате</h3>
+      <p class="card-body">Первую проверку проводим бесплатно, чтобы вы заранее увидели экономию в цифрах. А в дальнейшей работе действует твердое правило: если мы не нашли и не выторговали условия выгоднее ваших текущих — наши услуги стоят для вас <strong class="font-semibold text-[var(--good-text)] tabular-nums">ровно 0 рублей</strong>.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section id="screen-5" class="valorum-section valorum-section--last">
+   <div class="dark-green-banner dark-green-banner--lg reveal-item">
+    <span class="corner-tick tl"></span>
+    <span class="corner-tick tr"></span>
+    <span class="corner-tick bl"></span>
+    <span class="corner-tick br"></span>
+    <h2 class="section-h2">Напишите нам в Telegram — обсудим вашу задачу, и в течение суток вы получите результат</h2>
+    <p class="text-[15px] sm:text-[17px] text-white/85 leading-[1.62] tabular-nums max-w-2xl mb-6 sm:mb-8">На примере 1–3 позиций из ваших текущих счетов найдем прямых поставщиков, сведем честную экономику с НДС и доставкой и без обязательств покажем точную экономию в рублях.</p>
+    <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+     <a href="https://t.me/valorum_official_bot?start=landing_cta" data-bot-cta target="_blank" rel="noopener noreferrer" class="btn-valorum w-full sm:w-auto inline-flex justify-center items-center gap-2 sm:gap-2.5 min-h-[50px] sm:min-h-[52px] px-4 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-[13px] sm:text-[15px] leading-[1.3] text-center shrink-0">
+      <span>Написать в Telegram и обсудить задачу</span>
+      <svg class="w-4 h-4 text-[var(--dark-green)] shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+       <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"/>
+      </svg>
+     </a>
+     <div class="inline-flex items-center justify-center sm:justify-start gap-2.5 text-xs sm:text-[13px] leading-[1.4] text-white/85 tabular-nums">
+      <span class="live-red-dot-dark w-2 h-2 rounded-full bg-[#FF7682] shrink-0"></span>
+      <span>Получите результат за 24 часа. <strong class="font-semibold text-white">Бесплатно.</strong></span>
+     </div>
+    </div>
+   </div>
+  </section>
+ </main>
+ <footer class="bg-[var(--bg-surface)] border-t border-[var(--border-hairline)]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-9 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 lg:gap-8">
+   <div class="flex flex-col items-start gap-[5px]">
+    <a href="#screen-1" class="brand-lockup" aria-label="Валорум — наверх страницы">
+     <svg class="brand-logo-box" aria-hidden="true"><use href="#valorum-mark"/></svg>
+     <span class="brand-wordmark">ВАЛОРУМ</span>
+    </a>
+    <div class="text-[12px] sm:text-[12.5px] leading-[1.4] text-[var(--text-secondary)] lg:whitespace-nowrap">Повышение эффективности закупок и снабжения</div>
+   </div>
+   <div class="flex flex-col items-start gap-1.5 sm:gap-1">
+    <div class="text-[12px] sm:text-[12.5px] font-semibold text-[var(--dark-green-ink)] leading-[1.35]">Связаться с руководителем</div>
+    <div class="flex flex-col gap-1 sm:gap-0.5 font-mono-tech text-xs leading-[1.45]">
+     <div class="inline-flex items-center whitespace-nowrap">
+      <span class="footer-dot"></span>
+      <span class="text-[var(--text-muted)]">TG:</span>
+      <a href="https://t.me/SerjMuzikin" target="_blank" rel="noopener noreferrer" class="footer-link">@SerjMuzikin</a>
+     </div>
+     <div class="inline-flex items-center whitespace-nowrap">
+      <span class="footer-dot"></span>
+      <span class="text-[var(--text-muted)]">EMAIL:</span>
+      <a href="mailto:muzikin.s@yandex.ru" class="footer-link">muzikin.s@yandex.ru</a>
+     </div>
+    </div>
+   </div>
+   <div class="w-full lg:w-auto pt-4 lg:pt-0 border-t border-[var(--border-hairline)] lg:border-0 flex flex-col items-start lg:items-end lg:text-right gap-1">
+    <div class="text-[12px] leading-[1.4] text-[var(--text-secondary)] lg:whitespace-nowrap">Сайт не собирает и не хранит ваши персональные данные.</div>
+    <div class="font-mono-tech text-[11.5px] leading-[1.4] text-[var(--text-muted)] lg:whitespace-nowrap">© 2026 Валорум. Все права защищены.</div>
+   </div>
+  </div>
+ </footer>
+ <div id="cookie-notice" class="cookie-notice" role="region" aria-label="Уведомление о cookie" hidden>
+  <p class="cookie-notice-text">Используем технические cookie-файлы для стабильной работы сайта и обезличенной статистики.</p>
+  <button type="button" id="cookie-accept-btn" class="cookie-notice-btn">Ок</button>
+ </div>
+ <script src="kinematics.js" defer></script>
 </body>
 </html>
