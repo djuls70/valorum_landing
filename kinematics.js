@@ -101,6 +101,36 @@ window.AppUI = { version: '1.0.0' };
             );
             countObserver.observe(ledger);
         }
+
+        /* 4. Делегированный фильтр рубрик блога ([data-filter] -> [data-rubric]) */
+        if (typeof document.addEventListener === 'function') {
+            document.addEventListener('click', (e) => {
+                const target = e.target;
+                const btn = target && typeof target.closest === 'function' ? target.closest('[data-filter]') : null;
+                if (!btn || btn.disabled) return;
+                const filter = btn.getAttribute('data-filter') || 'all';
+                document.querySelectorAll('[data-filter]').forEach((b) => {
+                    b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+                });
+                let visibleCount = 0;
+                document.querySelectorAll('[data-rubric]').forEach((card) => {
+                    const match = filter === 'all' || card.getAttribute('data-rubric') === filter;
+                    card.hidden = !match;
+                    if (match) {
+                        card.removeAttribute('hidden');
+                        visibleCount += 1;
+                    } else {
+                        card.setAttribute('hidden', '');
+                    }
+                });
+                const emptyEl = document.querySelector('[data-blog-empty]');
+                if (emptyEl) {
+                    emptyEl.hidden = visibleCount > 0;
+                    if (visibleCount > 0) emptyEl.setAttribute('hidden', '');
+                    else emptyEl.removeAttribute('hidden');
+                }
+            });
+        }
     } catch (_err) {}
 })();
 
@@ -285,16 +315,27 @@ window.AppUI = { version: '1.0.0' };
     };
 
     let ymClientIdCache = '';
+    const BTN_CAMP_RE = /^[a-z0-9-]{1,6}$/;
     const updateBotCtaLinks = () => {
         try {
             const ctas = document.querySelectorAll('[data-bot-cta]');
             if (!ctas || !ctas.length) return;
             const state = readStoredAttribution(Date.now()) || { yclid: '', camp: '', ts: 0 };
             const ymuid = ymClientIdCache || readYmUidFromCookie();
-            const startParam = buildStartParam(state.camp, state.yclid, ymuid);
-            const targetHref = BOT_BASE_URL + startParam;
             ctas.forEach((el) => {
-                el.setAttribute('href', targetHref);
+                const rawBtnCamp = typeof el.getAttribute === 'function' ? el.getAttribute('data-bot-camp') : '';
+                const cleanBtnCamp = typeof rawBtnCamp === 'string' && BTN_CAMP_RE.test(rawBtnCamp.trim()) ? rawBtnCamp.trim() : '';
+                let startParam;
+                if (state.yclid) {
+                    startParam = buildStartParam(state.camp, state.yclid, ymuid);
+                } else if (state.camp) {
+                    startParam = buildStartParam(state.camp, '', ymuid);
+                } else if (cleanBtnCamp) {
+                    startParam = 'v1_' + cleanBtnCamp + '_0_' + encodeNumericB36(ymuid);
+                } else {
+                    startParam = buildStartParam('', '', ymuid);
+                }
+                el.setAttribute('href', BOT_BASE_URL + startParam);
             });
         } catch (_e) {}
     };
