@@ -140,41 +140,50 @@ window.AppUI = { version: '1.0.0' };
 
     const COOKIE_ACK_KEY = 'valorum_cookie_ack';
     const ATTR_STORAGE_KEY = 'valorum_attr_v1';
+    const ORG_CAMP_SESSION_KEY = 'valorum_org_camp_v1';
+    const LAST_BLOG_CAMP_KEY = 'valorum_last_blog_camp';
     const ATTR_TTL_MS = 21 * 86400 * 1000;
     const BOT_BASE_URL = 'https://t.me/valorum_official_bot?start=';
     const DEFAULT_START = 'landing_cta';
     const METRIKA_SRC = 'https://mc.yandex.ru/metrika/tag.js';
     const BASE36_MOD_6 = 2176782336; // 36^6
 
-    const memoryStore = Object.create(null);
-    const safeStorage = {
-        getItem(key) {
-            try {
-                if (window.localStorage) {
-                    const val = window.localStorage.getItem(key);
-                    if (val !== null) return val;
-                }
-            } catch (_e) {}
-            return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
-        },
-        setItem(key, value) {
-            const val = String(value);
-            memoryStore[key] = val;
-            try {
-                if (window.localStorage) {
-                    window.localStorage.setItem(key, val);
-                }
-            } catch (_e) {}
-        },
-        removeItem(key) {
-            delete memoryStore[key];
-            try {
-                if (window.localStorage) {
-                    window.localStorage.removeItem(key);
-                }
-            } catch (_e) {}
-        }
+    const makeSafeStorage = (areaName) => {
+        const memoryStore = Object.create(null);
+        return {
+            getItem(key) {
+                try {
+                    const area = window[areaName];
+                    if (area) {
+                        const val = area.getItem(key);
+                        if (val !== null) return val;
+                    }
+                } catch (_e) {}
+                return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
+            },
+            setItem(key, value) {
+                const val = String(value);
+                memoryStore[key] = val;
+                try {
+                    const area = window[areaName];
+                    if (area) {
+                        area.setItem(key, val);
+                    }
+                } catch (_e) {}
+            },
+            removeItem(key) {
+                delete memoryStore[key];
+                try {
+                    const area = window[areaName];
+                    if (area) {
+                        area.removeItem(key);
+                    }
+                } catch (_e) {}
+            }
+        };
     };
+    const safeStorage = makeSafeStorage('localStorage');
+    const safeSessionStorage = makeSafeStorage('sessionStorage');
 
     const parseQuery = (searchStr) => {
         const result = Object.create(null);
@@ -280,6 +289,10 @@ window.AppUI = { version: '1.0.0' };
         }
     };
 
+    let ymClientIdCache = '';
+    let currentUrlCamp = '';
+    const BTN_CAMP_RE = /^[a-z0-9-]{1,6}$/;
+
     const syncAttributionState = () => {
         const nowMs = Date.now();
         const stored = readStoredAttribution(nowMs);
@@ -295,10 +308,24 @@ window.AppUI = { version: '1.0.0' };
             state = { yclid: qYclid, camp: qCamp, ts: nowMs };
             safeStorage.setItem(ATTR_STORAGE_KEY, JSON.stringify(state));
         } else if (qCamp) {
-            const keepYclid = stored && stored.yclid ? stored.yclid : '';
-            const keepTs = stored && stored.yclid && stored.ts ? stored.ts : nowMs;
-            state = { yclid: keepYclid, camp: qCamp, ts: keepTs };
-            safeStorage.setItem(ATTR_STORAGE_KEY, JSON.stringify(state));
+            currentUrlCamp = qCamp;
+            if (!stored || !stored.yclid) {
+                safeSessionStorage.setItem(ORG_CAMP_SESSION_KEY, qCamp);
+            }
+        }
+
+        const pathStr = String((window.location && window.location.pathname) || '');
+        const isArticlePath = /^\/blog\/[a-z0-9-]+\/?$/i.test(pathStr);
+        if (isArticlePath) {
+            const ctas = document.querySelectorAll('[data-bot-cta]');
+            for (let i = 0; i < ctas.length; i++) {
+                const rawBtnCamp = typeof ctas[i].getAttribute === 'function' ? ctas[i].getAttribute('data-bot-camp') : '';
+                const cleanBtnCamp = typeof rawBtnCamp === 'string' && BTN_CAMP_RE.test(rawBtnCamp.trim()) ? rawBtnCamp.trim() : '';
+                if (cleanBtnCamp && /^bg-a\d{2}$/.test(cleanBtnCamp)) {
+                    safeSessionStorage.setItem(LAST_BLOG_CAMP_KEY, cleanBtnCamp);
+                    break;
+                }
+            }
         }
         return state;
     };
@@ -314,24 +341,26 @@ window.AppUI = { version: '1.0.0' };
         return /^[A-Za-z0-9_-]{1,64}$/.test(token) ? token : DEFAULT_START;
     };
 
-    let ymClientIdCache = '';
-    const BTN_CAMP_RE = /^[a-z0-9-]{1,6}$/;
     const updateBotCtaLinks = () => {
         try {
             const ctas = document.querySelectorAll('[data-bot-cta]');
             if (!ctas || !ctas.length) return;
             const state = readStoredAttribution(Date.now()) || { yclid: '', camp: '', ts: 0 };
             const ymuid = ymClientIdCache || readYmUidFromCookie();
+            const orgCamp = safeSessionStorage.getItem(ORG_CAMP_SESSION_KEY) || '';
+            const lastBlogCamp = safeSessionStorage.getItem(LAST_BLOG_CAMP_KEY) || '';
             ctas.forEach((el) => {
                 const rawBtnCamp = typeof el.getAttribute === 'function' ? el.getAttribute('data-bot-camp') : '';
                 const cleanBtnCamp = typeof rawBtnCamp === 'string' && BTN_CAMP_RE.test(rawBtnCamp.trim()) ? rawBtnCamp.trim() : '';
                 let startParam;
                 if (state.yclid) {
                     startParam = buildStartParam(state.camp, state.yclid, ymuid);
-                } else if (state.camp) {
-                    startParam = buildStartParam(state.camp, '', ymuid);
+                } else if (currentUrlCamp) {
+                    startParam = buildStartParam(currentUrlCamp, '', ymuid);
                 } else if (cleanBtnCamp) {
                     startParam = 'v1_' + cleanBtnCamp + '_0_' + encodeNumericB36(ymuid);
+                } else if (orgCamp || lastBlogCamp) {
+                    startParam = buildStartParam(orgCamp || lastBlogCamp, '', ymuid);
                 } else {
                     startParam = buildStartParam('', '', ymuid);
                 }

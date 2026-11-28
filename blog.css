@@ -136,6 +136,7 @@
   }
   .blog-empty-state[hidden] { display: none; }
   .blog-index-banner { margin-top: 2.25rem; }
+  #blog-cta { scroll-margin-top: 84px; }
   .blog-banner-text { font-size: 0.9375rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); max-width: 44rem; margin-bottom: 1.25rem; }
 
   .blog-article-wrap { padding: 1.75rem 0 4rem; max-width: 52rem; }
@@ -179,10 +180,21 @@
   .valorum-ledger td { padding: 0.85rem 1rem; border-top: 1px solid var(--border-hairline); }
   @media (max-width: 639px) {
     .valorum-ledger thead { display: none; }
-    .valorum-ledger tr { display: block; padding: 0.75rem 1rem; border-top: 1px solid var(--border-hairline); }
+    .valorum-ledger tr { display: block; padding: 0.85rem 1rem; border-top: 1px solid var(--border-hairline); }
     .valorum-ledger tbody tr:first-child { border-top: 0; }
-    .valorum-ledger td { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; padding: 0.35rem 0; border-top: 0; }
-    .valorum-ledger td::before { content: attr(data-label); font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); text-align: left; flex-shrink: 0; }
+    .valorum-ledger td {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+      padding: 0.35rem 0; border-top: 0; text-align: right;
+    }
+    .valorum-ledger td:first-child {
+      display: block; text-align: left; font-weight: 700;
+      padding: 0 0 0.45rem; margin-bottom: 0.25rem; border-bottom: 1px solid var(--border-hairline);
+    }
+    .valorum-ledger td:first-child::before { display: none; }
+    .valorum-ledger td::before {
+      content: attr(data-label); font-family: var(--font-mono); font-size: 11px;
+      color: var(--text-muted); text-align: left; flex: 0 1 48%;
+    }
   }
   .blog-ledger-summary { margin-top: 0.75rem; font-size: 0.875rem; font-weight: 600; color: var(--dark-green-ink); }
 
