@@ -257,21 +257,66 @@
     }
   }
 
-  /* Кнопки CTA, навигация шапки и футер */
+  /* Кнопки CTA, навигация шапки, подвал таблицы и футер */
   .header-nav-link {
-    font-size: 12.5px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text-secondary);
-    padding: 0.35rem 0.25rem;
-    transition: color 0.16s ease;
+    padding: 0.35rem 0.15rem;
+    transition: color 0.18s var(--ease-crisp);
   }
-  .header-nav-link:hover { color: var(--dark-green); }
+  .header-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    right: 0.15rem;
+    bottom: 1px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--crimson);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s var(--ease-crisp);
+  }
+  .header-nav-link:hover,
+  .header-nav-link:focus-visible { color: var(--dark-green-ink); }
+  .header-nav-link:hover::after,
+  .header-nav-link:focus-visible::after { transform: scaleX(1); }
   @media (min-width: 640px) {
-    .header-nav-link { font-size: 13px; }
+    .header-nav-link { font-size: 13px; padding: 0.35rem 0.25rem; }
+    .header-nav-link::after { left: 0.25rem; right: 0.25rem; }
   }
-  @media (max-width: 359px) {
-    .brand-wordmark { font-size: 13.5px; letter-spacing: 0.04em; }
-    .header-nav-link { font-size: 12px; }
+  @media (max-width: 389px) {
+    .brand-wordmark { font-size: 13px; letter-spacing: 0.03em; }
+    .header-nav-link { font-size: 11px; padding: 0.3rem 0.1rem; }
+    .btn-header-outline { font-size: 11.5px; padding-left: 0.5rem; padding-right: 0.5rem; }
+  }
+
+  .ledger-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-top: 0.625rem;
+    padding: 0 0.25rem;
+  }
+  .ledger-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-green);
+    transition: color 0.18s var(--ease-crisp);
+  }
+  .ledger-more-link svg { width: 0.875rem; height: 0.875rem; flex-shrink: 0; transition: transform 0.2s var(--ease-mech); }
+  @media (hover: hover) {
+    .ledger-more-link:hover { color: var(--crimson); }
+    .ledger-more-link:hover svg { transform: translateX(3px); }
   }
 
   .btn-header-outline {
@@ -412,7 +457,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-item { opacity: 1; transform: none; transition: none; }
-    .hero-highlight::after { transform: scaleX(1); transition: none; }
+    .hero-highlight::after, .header-nav-link::after { transition: none; }
+    .hero-highlight::after { transform: scaleX(1); }
     .check-stroke { stroke-dashoffset: 0; transition: none; }
     .live-red-dot, .live-red-dot-dark { animation: none; }
   }
